@@ -1,6 +1,6 @@
 # Hi, I'm Oğuzhan 👋
 
-- 🚀 Product builder, AI & Gaming enthusiast  
+- 🚀 Product builder, VibeCoder, AI & Gaming enthusiast  
 - 🎮 Mobile games, digital music & kids’ content  
 - 👨‍💻 Ex PO-PMP of many product and mobile games | Community strategist | MBA  
 - 🧑‍🔬 Always learning, always shipping  
