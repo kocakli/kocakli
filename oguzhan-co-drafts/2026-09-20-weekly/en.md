@@ -19,7 +19,7 @@ Dario Amodei opened the policy argument just before this bulletin's date window 
 
 Government would have a role. Amodei suggested U.S. mediation or a narrow antitrust route so competitors could coordinate without turning safety conversations into illegal collusion. He also framed the race with China as a reason to organize, rather than a reason to sprint blindly.
 
-Demis Hassabis agreed with the direction and moved the debate toward an institution. The Google DeepMind CEO pointed to Google's proposal for an industry-wide standards body for frontier AI, overseen in the United States and shaped somewhat like FINRA, the public-private self-regulatory organization used in finance.
+Demis Hassabis agreed with the direction and moved the debate toward an institution. He endorsed Amodei's essay on X, while the DeepMind Institute supplied the standards-body framing. The Google DeepMind CEO pointed to Google's proposal for an industry-wide standards body for frontier AI, overseen in the United States and shaped somewhat like FINRA, the public-private self-regulatory organization used in finance. CNBC, Moneycontrol, and trade publications tracked the proposal as a live policy fight.
 
 Under that proposal, participating labs would provide frontier models for independent testing, initially as much as about 30 days before release. The body would keep refreshing benchmarks before models learned to ace stale exams. Its strongest provision would permit coordinated slowing among frontier labs if tests showed that conditions demanded it.
 
