@@ -2,7 +2,7 @@
 title: "OpenAI misalignment raporlama çerçevesi ne işe yarıyor?"
 slug: openai-misalignment-raporlama-cercevesi
 yoast_title: "OpenAI misalignment raporlama çerçevesi"
-yoast_metadesc: "OpenAI'ın üç raporlama hattı nasıl işliyor, ilk altı dosya ne anlatıyor ve gönüllü misalignment açıklamalarının sınırı nerede?"
+yoast_metadesc: "OpenAI'ın misalignment raporlama sistemi nasıl işliyor, üç inceleme hattı ne anlama geliyor, altı dosya ne gösteriyor, gönüllü açıklamanın sınırı nerede?"
 focus_keyphrase: OpenAI misalignment raporlama çerçevesi
 excerpt: "OpenAI'ın misalignment vakalarını nasıl seçeceğine, inceleyeceğine ve duyuracağına dair yeni sistemin sade bir okuması."
 ---

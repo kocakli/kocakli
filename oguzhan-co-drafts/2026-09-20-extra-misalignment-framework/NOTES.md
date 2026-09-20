@@ -23,7 +23,7 @@ Counts exclude YAML frontmatter and use Unicode-aware word matching.
 ## Calque and slop self-checks
 
 1. Used no em dash, decorative en dash, or uniform aside punctuation.
-2. Removed banned English filler and scaffolding, including “delve,” “landscape,” “robust,” and not-only-but-also phrasing.
+2. Avoided banned English filler, template transitions, and stacked contrast scaffolding.
 3. Wrote the Turkish article from a native Turkish structure rather than following the English section sentence by sentence.
 4. Avoided brochure Turkish, `-maktadır` chains, “Günümüzde,” “Sonuç olarak,” and repeated `sadece X değil Y` constructions.
 5. Used “standartlar kuruluşu” and “özdenetim yapısı” where institutional language was needed; did not use the banned Turkish calque.

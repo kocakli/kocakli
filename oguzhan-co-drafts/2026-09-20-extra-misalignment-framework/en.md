@@ -1,8 +1,8 @@
 ---
-title: "OpenAI's misalignment reporting framework, explained"
+title: "OpenAI misalignment reporting framework, explained"
 slug: openai-misalignment-reporting-framework-explained
-yoast_title: "OpenAI's misalignment reporting framework explained"
-yoast_metadesc: "How OpenAI's misalignment reporting framework works, what its three tracks mean, and how to read the first six model behavior reports."
+yoast_title: "OpenAI misalignment reporting framework explained"
+yoast_metadesc: "How OpenAI's misalignment reporting framework works, what its three tracks mean, what six model reports show, and where voluntary disclosure falls short."
 focus_keyphrase: OpenAI misalignment reporting framework
 excerpt: "A practical guide to OpenAI's three disclosure tracks, the first six reports, and the limits of voluntary reporting."
 ---
