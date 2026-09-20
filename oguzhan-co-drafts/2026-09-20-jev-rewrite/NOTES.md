@@ -81,3 +81,12 @@ The rewritten day-one posts preserve the source article's 11.5x and 9.6x figures
 - Production guidance keeps deterministic checks and human fallback in front of irreversible actions.
 - Doom is not described as vision-based gameplay.
 - LitJev, openjev, kev, and NanoJev are described as independent experiments, not verified copies of TypeSafe's private stack.
+
+## Final checks
+
+- Requested file set: present, with no extra deliverables in the dated directory.
+- Front matter: all four posts include `title`, `yoast_title`, `yoast_metadesc`, and `focus_keyphrase`.
+- Markdown sources: each post has a Sources/Kaynaklar section and at least five direct links.
+- Word counts including front matter: 4766 EN 1,853; 4767 TR 1,565; 4780 EN 1,523; 4781 TR 1,278.
+- Voice scan: no banned EN/TR phrases or em/en dashes occur in the four article files.
+- Repository check: `git diff --check` passes.
