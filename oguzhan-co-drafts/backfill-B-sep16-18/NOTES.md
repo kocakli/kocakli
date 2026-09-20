@@ -31,3 +31,12 @@ No unavailable brief text is represented as reviewed.
 - Claims from company-run measurements are identified as such and separated from independent verification.
 - Decorative em/en dashes and the voice pack's banned brochure language were removed.
 
+## Final checks
+
+- Exactly eight article files are present, plus this notes file.
+- Every article has the seven expected front-matter fields and a linked Sources or Kaynaklar section.
+- Word counts including front matter: 4701 EN 1,119; 4700 TR 1,020; 4708 EN 1,960; 4707 TR 1,747; 4720 EN 1,180; 4721 TR 1,068; 4728 EN 1,196; 4729 TR 1,067.
+- Total article word count including front matter: 10,357.
+- English and Turkish prohibited-language scans pass; the single natural sentence `Demek ki mesele sektörün para vermesi değil` was manually reviewed and is not a repeated rhetorical scaffold.
+- `git diff --check` passes.
+
