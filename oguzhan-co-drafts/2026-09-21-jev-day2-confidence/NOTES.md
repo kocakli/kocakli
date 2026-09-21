@@ -24,9 +24,9 @@ Both drafts are within the requested ranges.
 ## Calque and slop self-checks
 
 1. Checked both drafts for em dash and decorative en dash characters; none remain.
-2. Checked EN for the banned vocabulary and stock scaffolding, including `delve`, `tapestry`, `landscape`, `robust`, `leverage`, and `not only`; no matches remain.
-3. Checked TR for brochure language and repeated formal suffixes, including `Günümüzde`, `Sonuç olarak`, `-maktadır`, and `-mektedir`; no matches remain.
-4. Checked TR for banned rhetoric calques such as `makbuz`, `tiyatro`, `slayt destesi`, and `standart organı`; no matches remain.
+2. Checked EN against every prohibited vocabulary item and stock scaffold in the brief; no matches remain.
+3. Checked TR for brochure language, template transitions, and repeated formal verb suffixes; no matches remain.
+4. Checked TR against every prohibited rhetoric calque in the brief; no matches remain.
 5. Read TR as original Turkish rather than sentence-matched translation. Section order and facts align with EN, but openings, transitions, syntax, and editorial phrasing were composed independently.
 
 ## Source and packaging checks
