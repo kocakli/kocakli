@@ -28,13 +28,12 @@ Each post has five emoji H2 story sections. The required inline image comments a
 The same source set is used in EN and TR.
 
 1. Grok 4.7: https://x.ai/news/grok-4-7
-2. GitHub Copilot availability: https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot/
-3. OpenAI and Anthropic negotiations: https://www.livemint.com/ai/openai-anthropic-negotiate-landmark-deal-to-stress-test-each-other-s-ai-models-for-safety-risks-11790001384308.html
-4. Navier-Stokes dispute: https://www.scientificamerican.com/article/did-openai-solve-the-wrong-navier-stokes-problem/
-5. Googlebook: https://techcrunch.com/2026/09/21/googles-899-googlebook-is-a-bet-that-youll-buy-a-new-laptop-for-gemini/
-6. Muse download estimates: https://www.livemint.com/ai/meta-muse-tops-chatgpt-s-first-12-day-mobile-growth-with-1-8-million-ios-downloads-vs-1-3-million-11790047772672.html
-
-The Decrypt parameter and SpaceX training details are attributed in prose but not linked separately because each story already leads with its primary source and the brief required at least one outbound cite per story.
+2. Grok parameter and SpaceX training details: https://decrypt.co/378824/xai-launches-grok-4-7
+3. GitHub Copilot availability: https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot/
+4. OpenAI and Anthropic negotiations: https://www.livemint.com/ai/openai-anthropic-negotiate-landmark-deal-to-stress-test-each-other-s-ai-models-for-safety-risks-11790001384308.html
+5. Navier-Stokes dispute: https://www.scientificamerican.com/article/did-openai-solve-the-wrong-navier-stokes-problem/
+6. Googlebook: https://techcrunch.com/2026/09/21/googles-899-googlebook-is-a-bet-that-youll-buy-a-new-laptop-for-gemini/
+7. Muse download estimates: https://www.livemint.com/ai/meta-muse-tops-chatgpt-s-first-12-day-mobile-growth-with-1-8-million-ios-downloads-vs-1-3-million-11790047772672.html
 
 ## Internal links used
 
