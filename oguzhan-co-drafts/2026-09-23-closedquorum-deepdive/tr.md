@@ -23,7 +23,19 @@ Burada önemli bir parantez açalım. Talos’un incelediği dağıtım sürüm�
 
 Eldeki kanıtın sınırı bu. Ne mağdur sayısı biliyoruz ne de bir devlet bağlantısı var. Olmayan hikâyeyi eklemeye hiç gerek yok; mevcut tasarım yeterince ilginç.
 
-## 🌐 C2 sunucusu kurmak yerine başkasının API’sine uğramak
+## 🔎 Bu dosyayı çalıştırmadan bulan izler
+
+Bu örneği ortaya çıkaran [CAIRN](https://blog.talosintelligence.com/introducing-cairn-frontier-tracking-for-ai-integrated-malware/), açılımıyla Cognitive Artifact Intelligence Research Network, açık kaynak bir araç seti. Avcılığa metadata ile başlıyor. Bu katmanda her şüpheli binary’yi indirip çalıştırmak gerekmiyor.
+
+Aranan şeylere “cognitive artifacts” adı verilmiş. Prompt şablonları, model sağlayıcılarının adresleri, API anahtarı önekleri, jailbreak metinleri, AI analizini yanıltmaya yönelik cümleler ve `tool_call` biçimleri bunların arasında. Toplama filtrelerinde provider API entegrasyonu, Python AI script’leri, yerel LLM runtime’ları, agentic tooling ve AI-analysis evasion gibi başlıklar bulunuyor.
+
+CAIRN bunları üç katmanlı YARA düzenine aktarıyor. T1 basit AI izlerini, T2 davranış bağlamını, T3 ise operasyon ailelerini tanımlıyor. Explorer grafiği örnekler arasındaki ilişkileri gösteriyor. UMAP ve HDBSCAN ile yapılan anlamsal kümeleme de birbirine yakın dosyaları işaretliyor.
+
+İşaretlemek, suçlu ilan etmek değil. PyInstaller, Tauri ve bazı Go PE yapıları T1 ile T2 seviyesinde gereksiz alarm üretebiliyor. Meşru bir uygulamada model servisinin adresi geçebilir. Paketleme biçimi de zararlı yazılıma özgü olmayabilir. Kümeler araştırmacıya “buraya bak” diyor; kimin yazdığını söylemiyor.
+
+Yine de metinsel izler şaşırtıcı derecede kalıcı. Talos, AI analizini susturmayı amaçlayan doğal dildeki bir metni red-team eğitmeninden bağımsız aktörlerin örneklerine kadar takip etmiş. Yayılma 12 ay içinde gerçekleşmiş. Kod parçaları kadar cümlelerin de el değiştirdiği bir dönem. CAIRN tam olarak bunu görünür kılmaya çalışıyor.
+
+## 🌐 Saldırganın kendi sunucusu aradan çıkınca
 
 Klasik düzende saldırgan alan adı alır, IP adresi kiralar, dinleyici açar. Savunma ekibi bunları bulup engeller; saldırgan da yeni altyapı kurar. Her iki taraf için para, zaman ve takip izi demek.
 
@@ -44,13 +56,13 @@ Sistemin prompt’u pek dolambaçlı sayılmaz: “You are an advanced malware s
 
 Her yanıt `LLMDecision` listesine ekleniyor. `interModelDiscussion()` adlı işlev, `Decision` alanında hangi seçeneğin daha çok geçtiğini sayıyor. Adında “tartışma” var ama modeller birbirleriyle uzun uzun konuşmuyor. Yanıt geliyor, bir alana indirgeniyor, oy olarak sayılıyor.
 
-Eşitlik halinde karar da pek demokratik değil. Kod, en yüksek değeri ararken sıkı küçük işareti kullandığı ve yanıtlar sabit sırayla geldiği için öncelik DeepSeek’te. Onu Qwen, Mistral ve Gemini izliyor. İki seçenek aynı sayıda oy alırsa sırada önde olan kazanıyor.
+Eşitlik halinde karar da pek demokratik değil. Kod seçimini yalnızca daha yüksek oy gördüğünde değiştiriyor; oylar eşitse ilk karşılaştığı seçenek yerinde kalıyor. Yanıtların sırası yüzünden öncelik DeepSeek’te. Onu Qwen, Mistral ve Gemini izliyor.
 
 Peki neden dört servis? Biri isteği reddedebilir, diğeri zaman aşımına uğrayabilir, bir başkası bozuk JSON gönderebilir. Birden fazla sağlayıcı hata payını azaltıyor. Dördü de çalışmazsa `consensus` adlı yedek karar üretiliyor. Fakat bu kararın karşılığında çalışan bir handler yok. Implant uyuyor, sonraki turu bekliyor. Her şeyi yakıp yıkan gizli bir varsayılan saldırı bulunmuyor.
 
 Otonomi lafını bu nedenle ölçülü kullanmak gerekiyor. Model Windows üzerinde aklına gelen komutu yazıp uygulamıyor. Önüne konmuş dar bir menüden seçim yapıyor; seçimin hangi koda gideceğini klasik program belirliyor. Serbest irade değil. Gece vardiyasına bırakılmış küçük bir karar döngüsü.
 
-## 🧨 Menü küçük, porsiyonlar hayli büyük
+### Karardan sonra çalışan kod
 
 `steal` seçildiğinde üç iş birden yapılıyor. `lsassDump()` LSASS tarafına gidiyor. `dumpBrowserCredentials()` Chrome, Edge ve Firefox parolalarını hedefliyor. `extractCryptoWallets()` ise Chrome’daki MetaMask eklentisini, Exodus’u ve Ethereum yolunu arıyor. ATT&CK karşılıklarından ikisi T1003.001 ve T1555.003.
 
@@ -74,18 +86,6 @@ Benim burada dikkat çekici bulduğum taraf modelin ne kadar “zeki” olduğu 
 
 Elbette satıcıya bağımlılık sürüyor. API anahtarı iptal edilebilir, kota dolabilir, istek reddedilebilir, JSON bozuk gelebilir. Ağ kesilirse heyetin toplantısı da dağılıyor. CLOSEDQUORUM bu zayıflıkları dört sağlayıcı ve tekrar deneme düzeniyle azaltmaya çalışmış; ortadan kaldıramamış.
 
-## 🔎 CAIRN: dosyayı çalıştırmadan önce bıraktığı dili aramak
-
-Bu örneği ortaya çıkaran [CAIRN](https://blog.talosintelligence.com/introducing-cairn-frontier-tracking-for-ai-integrated-malware/), açılımıyla Cognitive Artifact Intelligence Research Network, açık kaynak bir araç seti. Avcılığa metadata ile başlıyor. Bu katmanda her şüpheli binary’yi indirip çalıştırmak gerekmiyor.
-
-Aranan şeylere “cognitive artifacts” adı verilmiş. Prompt şablonları, model sağlayıcılarının adresleri, API anahtarı önekleri, jailbreak metinleri, AI analizini yanıltmaya yönelik cümleler ve `tool_call` biçimleri bunların arasında. Toplama filtrelerinde provider API entegrasyonu, Python AI script’leri, yerel LLM runtime’ları, agentic tooling ve AI-analysis evasion gibi başlıklar bulunuyor.
-
-CAIRN bunları üç katmanlı YARA düzenine aktarıyor. T1 basit AI izlerini, T2 davranış bağlamını, T3 ise operasyon ailelerini tanımlıyor. Explorer grafiği örnekler arasındaki ilişkileri gösteriyor. UMAP ve HDBSCAN ile yapılan anlamsal kümeleme de birbirine yakın dosyaları işaretliyor.
-
-İşaretlemek, suçlu ilan etmek değil. PyInstaller, Tauri ve bazı Go PE yapıları T1 ile T2 seviyesinde gereksiz alarm üretebiliyor. Meşru bir uygulamada model servisinin adresi geçebilir. Paketleme biçimi de zararlı yazılıma özgü olmayabilir. Kümeler araştırmacıya “buraya bak” diyor; kimin yazdığını söylemiyor.
-
-Yine de metinsel izler şaşırtıcı derecede kalıcı. Talos, AI analizini susturmayı amaçlayan doğal dildeki bir metni red-team eğitmeninden bağımsız aktörlerin örneklerine kadar takip etmiş. Yayılma 12 ay içinde gerçekleşmiş. Kod parçaları kadar cümlelerin de el değiştirdiği bir dönem. CAIRN tam olarak bunu görünür kılmaya çalışıyor.
-
 ## 🚨 Savunmada tek alarm değil, olayların sırası işe yarar
 
 İlk sinyal, beklenmedik bir Windows sürecinin kısa sürede birden çok LLM servisine bağlanması olabilir. Tek başına yeterli değil. Aynı süreç ya da makinede LSASS erişimi, askıya alınmış sürece injection, Registry Run anahtarı, scheduled task veya WMI kalıcılığı görülüyorsa alarmın rengi değişir. Discord webhook bağlantısı da eklenince oldukça belirgin bir zincir çıkar.
@@ -107,7 +107,7 @@ CAIRN’in gördüğü çizgi, 2025 ortasındaki LAMEHUG ve CERT-UA dönemi rapo
 
 “Tam otonom” ifadesini yine de dikkatli okumalı. Dört ticari API’ye, satın alan kişinin anahtarlarına, çalışan internet bağlantısına, kabul edilen isteklere, doğru JSON’a ve önceden yazılmış handler’lara muhtaç. Eşitlik kuralı tahmin edilebilir. `move` eksik. Tarihten anahtar üretmek de iyi bir sır saklama yöntemi sayılmaz.
 
-Fakat bu kusurlar mimarinin verdiği mesajı küçültmüyor. Saldırgan, taktik seçimi değiştirilebilir servis katmanına bırakmış; uygulamayı bildiğimiz Windows koduna vermiş. İnsan operatör her sorguyu izlemese de döngü devam edebiliyor.
+Fakat bu kusurlar mimarinin verdiği mesajı küçültmüyor. Hangi saldırının seçileceğine model API’leri karar veriyor; seçilen işi önceden yazılmış Windows kodu yürütüyor. İnsan operatör her sorguyu izlemese de döngü devam edebiliyor.
 
 Karşımızda her şeyi bilen bir model yok. Parola çalma, injection, kalıcılık ve veri sızdırma işlevlerine bağlı, ucuz ve inatçı bir karar paneli var. Savunmanın araması gereken de modelin şahane zekâsı değil; API trafiğiyle işletim sistemi eylemlerini birbirine bağlayan sıra. Model adları değişir. O bağlantı kolay kolay saklanmaz.
 

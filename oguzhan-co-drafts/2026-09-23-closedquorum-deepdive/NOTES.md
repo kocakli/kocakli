@@ -15,3 +15,5 @@ Rejected wording appears before the arrow; the wording used or reflected in the 
 6. “Dört sağlayıcı, sağlam bir fikir birliği mekanizması sunmaktadır.” → “Biri isteği reddedebilir, diğeri zaman aşımına uğrayabilir, bir başkası bozuk JSON gönderebilir. Birden fazla sağlayıcı hata payını azaltıyor.”
 7. “Masada çalışan canlı bir örnek bulunmuyor.” → “Talos ayrıca gerçek bir saldırı kampanyasını doğrulamadı.”
 8. “Sadece hız ve ölçek değil, aynı zamanda efor yer değiştirmesi de söz konusu.” → “CLOSEDQUORUM üçüncü bir başlık açıyor; insan emeğinin saldırının belirli bir aşamasından çekilip sürekli çalışan yazılım döngüsüne aktarılması.”
+9. “Kod, en yüksek değeri ararken sıkı küçük işareti kullanıyor.” → “Kod seçimini yalnızca daha yüksek oy gördüğünde değiştiriyor; oylar eşitse ilk karşılaştığı seçenek yerinde kalıyor.”
+10. “Uygulamayı bildiğimiz Windows koduna vermiş.” → “Seçilen işi önceden yazılmış Windows kodu yürütüyor.”
