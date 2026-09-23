@@ -4,7 +4,7 @@ Rejected wording appears before the arrow; the wording used or reflected in the 
 
 ## English
 
-1. “CLOSEDQUORUM represents a pivotal shift in the threat landscape.” → “The important part is the architecture, not a victim count that does not exist.”
+1. “CLOSEDQUORUM represents a pivotal shift in the threat landscape.” → “The important part is the architecture; no verified victim count is available.”
 2. “The four providers create a robust consensus mechanism.” → “One model may refuse, another may time out, and a third may produce malformed JSON. The panel can keep going.”
 3. “In this article, we will delve into how AI is transforming C2.” → “The deeper story is stranger than ‘malware uses AI.’”
 4. “It not only steals credentials but also establishes persistence.” → Split into concrete capability paragraphs naming LSASS, browser stores, Registry Run keys, scheduled tasks, and WMI.

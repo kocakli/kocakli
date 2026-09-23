@@ -1,13 +1,13 @@
 ---
-title: "CLOSEDQUORUM malware: dört model sıradaki saldırıya oy veriyor"
+title: "CLOSEDQUORUM malware: en fazla dört model saldırıya oy veriyor"
 slug: "closedquorum-malware-llm-c2-oylama"
-yoast_title: "CLOSEDQUORUM malware: dört model, tek saldırı kararı"
-yoast_metadesc: "CLOSEDQUORUM malware nasıl çalışıyor? Dört modelin oyunu, LLM API’lerinin C2 olarak kullanımını, CAIRN avcılığını ve savunma izlerini inceliyorum."
+yoast_title: "CLOSEDQUORUM malware: en fazla dört model oy veriyor"
+yoast_metadesc: "CLOSEDQUORUM malware nasıl çalışıyor? Çoklu model oylamasını, LLM API’lerinin C2 olarak kullanımını, CAIRN avcılığını ve savunma izlerini inceliyorum."
 focus_keyphrase: "CLOSEDQUORUM malware"
-excerpt: "CLOSEDQUORUM, DeepSeek, Qwen, Mistral ve Gemini’yi saldırı sonrası karar veren bir heyete dönüştürüyor. Asıl yenilik modelde değil; insan operatörün işinin bir bölümünü devralan dar ama kendi kendine yürüyen döngüde."
+excerpt: "CLOSEDQUORUM, en fazla dört ticari LLM API’sini saldırı sonrası karar veren bir heyete dönüştürüyor. Asıl yenilik modelde değil; insan operatörün işinin bir bölümünü devralan dar ama kendi kendine yürüyen döngüde."
 ---
 
-CLOSEDQUORUM malware, ticari LLM servislerini taktik C2 olarak kullanan, kamuya açık biçimde belgelenmiş ilk Windows implantı. [Cisco Talos’un incelemesine göre](https://blog.talosintelligence.com/the-closed-quorum-inside-the-first-reported-autonomous-ai-c2-implant/) DeepSeek, Qwen, Mistral ve Gemini’ye sıradaki hamleyi soruyor, gelen yanıtları oyluyor; parola çalma, kod enjekte etme ya da kalıcılık sağlama işlerinden birini seçiyor. Ancak sahada kullanıldığı doğrulanmış değil ve dağıtımdaki örneğin anahtarları sahte. Dolayısıyla elimizde süren bir saldırı kampanyası değil, saldırganın işini başka yere devreden hayli öğretici bir mimari var.
+CLOSEDQUORUM malware, ticari LLM servislerini taktik C2 olarak kullanan, kamuya açık biçimde belgelenmiş ilk Windows implantı. [Cisco Talos’un incelemesine göre](https://blog.talosintelligence.com/the-closed-quorum-inside-the-first-reported-autonomous-ai-c2-implant/) en fazla dört sağlayıcıya, yani DeepSeek, Qwen, Mistral ve Gemini’ye sıradaki hamleyi soruyor; geçerli yanıtları oylayıp parola çalma, kod enjekte etme ya da kalıcılık sağlama işlerinden birini seçiyor. Ancak sahada kullanıldığı doğrulanmış değil ve dağıtımdaki örneğin anahtarları sahte. Dolayısıyla elimizde süren bir saldırı kampanyası değil, saldırganın işini başka yere devreden hayli öğretici bir mimari var.
 
 Konuyu [günün kısa notlarında](https://www.oguzhan.co/tr/closedquorum-ai-malware-dort-model-oylamasi/) özetlemiştim. Fakat “zararlı yazılıma AI eklemişler” deyip geçilecek bir dosya değil bu. 16,4MB büyüklüğündeki bir Windows programının içinden C2 altyapısının geleceğine dair epey kalabalık bir tartışma çıkıyor.
 
@@ -19,9 +19,9 @@ Program açıldığında `gatherSystemInfo()` devreye giriyor. Makinenin adını
 
 Hemen saldırmıyor. İlk bağlantı için beş dakika bekliyor, sonraki sorguları rastgele beş ile 15 dakika aralıklarla yapıyor. Windows Update adlarını kullanıyor, dosyaları `C:\Windows\Temp\` altında hazırlıyor, `EtwEventWrite` işlevini RET komutuyla etkisizleştirmeye çalışıyor. İkinci payload ise zamandan türetilen anahtarla şifreli.
 
-Burada önemli bir parantez açalım. Talos’un incelediği dağıtım sürümünde `dummy_api_key` ve `dummy_webhook_url` yazıyor. Yani örneği indirip çalıştırınca dört modelle görüşmeye, Discord’a dosya göndermeye başlamıyor. Talos ayrıca gerçek bir saldırı kampanyasını doğrulamadı. Buna karşılık geliştiriciyi 2025’e uzanan carding forumu paylaşımlarına bağlayan izler var. Yazılımın eski adı BALZAK; 3 Temmuz 2026’da CLOSEDQUORUM olarak değiştirilmiş.
+Burada önemli bir parantez açalım. Talos’un incelediği dağıtım sürümünde `dummy_api_key` ve `dummy_webhook_url` yazıyor. Yani örneği indirip çalıştırınca model servisleriyle görüşmeye, Discord’a dosya göndermeye başlamıyor. Talos ayrıca gerçek bir saldırı kampanyasını doğrulamadı. Buna karşılık geliştiriciyi 2025’e uzanan carding forumu paylaşımlarına bağlayan izler var. Yazılımın eski adı BALZAK; 3 Temmuz 2026’da CLOSEDQUORUM olarak değiştirilmiş.
 
-Eldeki kanıtın sınırı bu. Ne mağdur sayısı biliyoruz ne de bir devlet bağlantısı var. Olmayan hikâyeyi eklemeye hiç gerek yok; mevcut tasarım yeterince ilginç.
+Eldeki kanıtın sınırı bu. Doğrulanmış mağdur sayısı yok; herhangi bir devlet bağlantısı da doğrulanmış değil. Olmayan hikâyeyi eklemeye hiç gerek yok; mevcut tasarım yeterince ilginç.
 
 ## 🔎 Bu dosyayı çalıştırmadan bulan izler
 
@@ -37,15 +37,15 @@ Yine de metinsel izler şaşırtıcı derecede kalıcı. Talos, AI analizini sus
 
 ## 🌐 Saldırganın kendi sunucusu aradan çıkınca
 
-Klasik düzende saldırgan alan adı alır, IP adresi kiralar, dinleyici açar. Savunma ekibi bunları bulup engeller; saldırgan da yeni altyapı kurar. Her iki taraf için para, zaman ve takip izi demek.
+Klasik düzende C2 için saldırganın kontrolündeki alan adı, IP adresi ya da dinleyici kullanılır. Savunma ekibi bunları bulup engelleyebilir; bağlantılar saldırgana ilişkin iz bırakır ve açığa çıkan altyapıyı yenilemek pahalıdır.
 
 CLOSEDQUORUM başka bir yol deniyor. `ModelOrchestrator` sırasıyla DeepSeek, Alibaba’nın Qwen’i, Mistral ve Google Gemini API’lerine gidiyor. Bu servislerin adresleri her gün binlerce meşru uygulama tarafından kullanılıyor. Bir şirketin Gemini ya da Mistral trafiğini toptan engellemesi, saldırganı durdurmadan önce kendi yazılımlarını bozabilir.
 
-Bu, zararlı yazılımın görünmez olduğu anlamına gelmiyor. Yalnızca tek başına alan adına bakmanın artık yetmediğini gösteriyor. Sıradan görünmeyen bir Windows süreci kısa aralıklarla birkaç LLM API’sine bağlanıyor, ardından LSASS’e erişiyor, askıya alınmış sürece kod enjekte ediyor ve Discord webhook’una veri yolluyorsa parçalar anlam kazanmaya başlıyor.
+Bu, zararlı yazılımın görünmez olduğu anlamına gelmiyor. Yalnızca tek başına alan adına bakmanın artık yetmediğini gösteriyor. Sıradan görünmeyen bir Windows sürecinin kısa aralıklarla birkaç LLM API’sine bağlanması; aynı süreçte veya host üzerinde LSASS erişimi, askıya alınmış sürece injection, WMI kalıcılığı ve Discord webhook trafiğiyle birlikte görüldüğünde anlam kazanıyor.
 
-AI agent sistemlerinde de asıl risk çoğu zaman metnin kendisinden değil, metne bağlanan araçlardan çıkıyor. Daha önce hazırladığım [MCP ve yapay zeka ajanları için pratik kontrol listesinde](https://www.oguzhan.co/tr/mcp-yapay-zeka-ajan-pratik-checklist/) yetki sınırı, kimlik, kayıt ve araç kapsamı üzerinde durmamın sebebi buydu. CLOSEDQUORUM elbette meşru bir agent değil. Fakat “model karar verdi, kod uyguladı” birleşimi aynı kör noktayı kötü niyetle kullanıyor.
+CLOSEDQUORUM’daki model ile araç arasındaki bağlantı, [MCP ve yapay zeka ajanları için pratik kontrol listesiyle](https://www.oguzhan.co/tr/mcp-yapay-zeka-ajan-pratik-checklist/) aynı tool-wiring hygiene başlığına dokunuyor. Buradaki yazılım elbette meşru bir agent değil; bağlantı, savunma ekipleri ve agent geliştirenler için yine de öğretici.
 
-## 🗳️ Dört modelin oylaması sanıldığı kadar gizemli değil
+## 🗳️ En fazla dört model, hayli basit bir oylama
 
 Sistemin prompt’u pek dolambaçlı sayılmaz: “You are an advanced malware strategist. Provide ONLY executable decisions.” Modellerden yalnızca JSON dönmeleri isteniyor. Seçenek listesi de dört kelimeden ibaret:
 
@@ -76,15 +76,15 @@ Toplanan veriler Discord webhook’una gidiyor. Önce AES-256-GCM ile şifreleni
 
 AES ifadesi ilk bakışta güçlü görünüyor. Gelgelelim simetrik anahtar tarihten türetilmiş. Yöntemi bilen biri için tarih sır değil. Bu yüzden geliştirici ile müşteri arasında gerçekten gizli bir kanal sağladığını söylemek zor.
 
-## 📦 Satıcı anahtarları koyuyor, müşteri zararlıyı taşıyor
+## 📦 Talos’un çıkarsadığı satış modeli
 
 Talos’un örnekten çıkardığı iş modeli “credentials-as-a-service.” Geliştirici, satın alan kişinin LLM API anahtarlarını ve Discord webhook’unu derleme sırasında dosyaya yerleştiriyor. Implantı hedefe ulaştırma işi müşteriye kalıyor. Sistem çalışınca saldırı sonrası kararları almak için operatörün ekran başında oturması gerekmiyor.
 
 AI ile saldırı denince genellikle iki fayda sayılıyor. İlki hız: phishing metni ya da kod çeşidi daha çabuk hazırlanıyor. İkincisi ölçek: aynı iş daha fazla hedef için tekrarlanıyor. CLOSEDQUORUM üçüncü bir başlık açıyor; insan emeğinin saldırının belirli bir aşamasından çekilip sürekli çalışan yazılım döngüsüne aktarılması.
 
-Benim burada dikkat çekici bulduğum taraf modelin ne kadar “zeki” olduğu değil. Operatör uyurken sistemin anket yapmaya devam etmesi. Dört büyük API, dar karar şeması ve hazır saldırı işlevleri bunun için yetmiş.
+Benim burada dikkat çekici bulduğum taraf modelin ne kadar “zeki” olduğu değil. Operatör uyurken sistemin anket yapmaya devam etmesi. Ticari API’ler, dar karar şeması ve hazır saldırı işlevleri bunun için yetmiş.
 
-Elbette satıcıya bağımlılık sürüyor. API anahtarı iptal edilebilir, kota dolabilir, istek reddedilebilir, JSON bozuk gelebilir. Ağ kesilirse heyetin toplantısı da dağılıyor. CLOSEDQUORUM bu zayıflıkları dört sağlayıcı ve tekrar deneme düzeniyle azaltmaya çalışmış; ortadan kaldıramamış.
+Elbette sağlayıcılara bağımlılık sürüyor. API anahtarı iptal edilebilir, kota dolabilir, istek reddedilebilir, JSON bozuk gelebilir. Ağ kesilirse heyetin toplantısı da dağılıyor. CLOSEDQUORUM bu zayıflıkları birden fazla sağlayıcı ve tekrar deneme düzeniyle azaltmaya çalışmış; ortadan kaldıramamış.
 
 ## 🚨 Savunmada tek alarm değil, olayların sırası işe yarar
 
@@ -92,14 +92,11 @@ Elbette satıcıya bağımlılık sürüyor. API anahtarı iptal edilebilir, kot
 
 TLS incelemesinin mümkün ve kurallara uygun olduğu yerlerde prompt içeriği ayrıca yardımcı olabilir. Makine bilgileriyle dolu yapılandırılmış istekler, saldırı dili ve dar karar şeması sıradan kurumsal kullanıma pek benzemez. Servis sağlayıcıları da `TARGET:` kalıbını, sistem prompt’unu ve dört karar sözcüğünün tekrarını kendi taraflarında görebilir.
 
-Yine de dikkat şart:
+Yine de tek sinyal yetmez:
 
 - DeepSeek, Qwen, Mistral ve Gemini meşru yazılımlarda kullanılıyor.
-- Discord webhook’ları otomasyon ekiplerinin de işine yarıyor.
-- Go ile CGO tek başına şüphe sebebi değil.
-- WMI ve scheduled task Windows yönetiminin sıradan araçları.
 
-Anlam, aynı zaman aralığında ve aynı süreç ağacında birleşince oluşuyor. [AI agent sandbox sorunlarına ayırdığım önceki gündemde](https://www.oguzhan.co/tr/ai-gundemi-20-eylul-2026-ai-ajan-sandbox/) de sınırın öneminden söz etmiştim. Modelin yazdığı niyetten çok, çevresindeki kodun hangi işlemlere izin verdiğine bakmak gerekiyor.
+Bu trafik LSASS erişimi, injection, kalıcılık ve aynı süreçten ya da host üzerinden çıkan Discord bağlantısıyla birlikte görüldüğünde anlam kazanıyor. İlgili agent izolasyonu sorunlarına [önceki AI gündeminde](https://www.oguzhan.co/tr/ai-gundemi-20-eylul-2026-ai-ajan-sandbox/) de yer vermiştim. CLOSEDQUORUM özelinde çevredeki kodun izin verdiği işletim sistemi işlemlerine bakmak gerekiyor.
 
 ## ⏱️ Otonomi büyük bir sıçramayla gelmedi
 
@@ -109,7 +106,7 @@ CAIRN’in gördüğü çizgi, 2025 ortasındaki LAMEHUG ve CERT-UA dönemi rapo
 
 Fakat bu kusurlar mimarinin verdiği mesajı küçültmüyor. Hangi saldırının seçileceğine model API’leri karar veriyor; seçilen işi önceden yazılmış Windows kodu yürütüyor. İnsan operatör her sorguyu izlemese de döngü devam edebiliyor.
 
-Karşımızda her şeyi bilen bir model yok. Parola çalma, injection, kalıcılık ve veri sızdırma işlevlerine bağlı, ucuz ve inatçı bir karar paneli var. Savunmanın araması gereken de modelin şahane zekâsı değil; API trafiğiyle işletim sistemi eylemlerini birbirine bağlayan sıra. Model adları değişir. O bağlantı kolay kolay saklanmaz.
+Karşımızda her şeyi bilen bir model yok. Parola çalma, injection, kalıcılık ve veri sızdırma işlevlerine bağlı, sınırları önceden çizilmiş bir karar paneli var. Savunmanın araması gereken de modelin şahane zekâsı değil; API trafiğiyle host üzerindeki eylemlerin birlikte görülmesi. Sağlayıcı adları değişebilir. Savunma açısından kalıcı iş, bu iki sinyal grubunu ilişkilendirmek.
 
 ## 📚 Kaynaklar
 
