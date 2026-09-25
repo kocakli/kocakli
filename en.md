@@ -27,7 +27,7 @@ The proposed remit has three concrete pieces. First, SAFA would support third-pa
 
 Those jobs sound adjacent, but they are not interchangeable. A pre-deployment test probes a model before release. An incident-reporting rule governs what happens when a failure or security event is found. Auditor qualifications decide who is accepted as competent to inspect the work. A standards group can be credible at one and weak at another.
 
-There is also an unresolved boundary. According to CNBC TV18, the working group is debating whether SAFA should conduct its own safety and capability tests alongside the US Center for AI Standards and Innovation, or CAISI. That is a consequential design choice. Funding outside evaluators is different from writing their requirements; writing requirements is different again from running the tests and issuing a result.
+There is also an unresolved boundary. According to CNBC TV18, the working group is debating whether SAFA should conduct its own safety and capability tests alongside the US Center for AI Standards and Innovation, or CAISI. That is a consequential design choice. Supporting outside evaluators is different from writing their requirements; writing requirements is different again from running the tests and issuing a result.
 
 The reports do not provide benchmark lists, pass marks, auditor exams, or enforcement procedures. Treating any of those as decided would fill blank pages that the labs themselves have not publicly filled.
 

@@ -21,30 +21,9 @@ Bir gün sonra [CNBC TV18](https://www.cnbctv18.com/technology/openai-google-and
 
 Şimdilik doğru tarif şu: Üç büyük lab'in üzerinde çalıştığı, adı bile geçici olan ve 2027 başında faaliyete geçebileceği bildirilen sektör öncülüğünde bir yapı. Gerisi, yayımlanmasını beklediğimiz evrakta.
 
-## Çalışma grubunun önündeki dosya
-
-Haberlerde üç iş açıkça geçiyor. Dağıtımdan önce model testi yapan üçüncü tarafları desteklemek, AI geliştiricilerinin güvenlik olaylarını nasıl bildireceğini belirlemek ve bağımsız denetçilerde aranacak nitelikleri tanımlamak.
-
-Bunları aynı kutuya koyup üzerine "güvenli" etiketi yapıştırmak kolay. Oysa her biri ayrı iş. Pre-deployment test, model kullanıcıya ulaşmadan önce kabiliyet ve risk arar. Olay bildirim kuralı, sorun ortaya çıktığında kimin neyi açıklayacağını belirler. Denetçi niteliğiyse bu incelemeyi yapacak tarafın yetkinliğini konu alır. Bir kuruluş ilk ikisinde işe yarar bir yöntem kurup üçüncüsünde sınıfta kalabilir.
-
-Bir de yetki sınırı tartışılıyor. CNBC TV18'e göre çalışma grubu, SAFA'nın üçüncü tarafları desteklemekle kalmayıp ABD'deki Center for AI Standards and Innovation, kısa adıyla CAISI, yanında güvenlik ve kabiliyet testlerini bizzat yürütüp yürütmemesini değerlendiriyor. Test yapanı desteklemek başka, test şartını yazmak başka, sınava girip sonucu vermek bambaşka.
-
-Hangi benchmark'ların kullanılacağı, geçme eşiği, denetçi sınavı veya yaptırım listesi haberlerde yer almıyor. Boşlukları hayal gücüyle doldurmaya hiç gerek yok.
-
-## Üç ayrı katman var, birbirine karıştırmayalım
-<!-- INLINE:safa-layers -->
-
-İlk katmanda kamu kurumları duruyor. ABD'deki CAISI ve İngiltere'deki AI Security Institute, devlet yapısı içinde kamu göreviyle çalışıyor. Hükümetlerin modellere erişim talebi de bu hatta ilerliyor. Yakın tarihli [White House ve İngiltere AISI haberinde](https://www.oguzhan.co/tr/washington-ingiltere-aisi-model-erisimi/) gördüğümüz tartışma, sektörün kuracağı SAFA'dan farklı bir yönetim meselesi.
-
-İkinci katman SAFA'nın talip olduğu yer: Şirketlerin öncülük ettiği özdenetim. Burada ortak prosedürler daha hızlı hazırlanabilir, teknik ekipler doğrudan konuşabilir. Fakat kuralı yazanlarla o kurala tabi modelleri satanlar aynı şirketlerse çıkar çatışması sorusu kapıda bekler. Bu bir suçlama değil; kurum tasarımının ilk sınavı.
-
-Üçüncü katmandaysa özel EvalOps şirketleri, bağımsız test ekipleri ve red team hizmetleri var. Alıcı adına belirli bir modeli ya da deploy senaryosunu incelerler. Sözleşmede "bağımsız" yazması yetmez. Şirket sahipliği, ödemeyi kimin yaptığı, modele erişim şartları ve olumsuz bulguyu yayımlama hakkı bağımsızlığın gerçek ölçüsü. Türkiye'deki örnekleri ve ihtiyacı [bağımsız AI değerlendirme yazısında](https://www.oguzhan.co/tr/turkiye-bagimsiz-ai-degerlendirme/) ayrıca ele almıştık.
-
-Bu üç katman veri ve yöntem paylaşabilir. Yine de SAFA, CAISI veya AISI yerine geçmez. SAFA'nın kabul ettiği denetçi de bu yüzden kamu düzenleyicisine dönüşmez.
-
 ## İsimler var, atama yok
 
-Yeni bir kurum haberi birkaç tanınmış isimle gelince iş bitmiş gibi görünüyor. Burada tam tersi geçerli.
+Haberin en kolay yanlış anlaşılacak kısmı yönetici listesi. Birkaç tanınmış isim görünce kuruluşun odaları tutulmuş, kartvizitleri basılmış gibi geliyor. O aşamada değiliz.
 
 CNBC TV18'in aktardığı değerlendirme listesinde Sriram Krishnan, Arati Prabhakar, Condoleezza Rice ve David Friedberg bulunuyor. Haberde Krishnan eski girişim sermayedarı ve Trump yönetiminin önde gelen AI politika danışmanı olarak tarif ediliyor. Prabhakar ise Biden döneminde White House Office of Science and Technology Policy'yi yönetmişti.
 
@@ -54,27 +33,48 @@ Federal hükümetle ilişki de netleşmiş değil. CNBC TV18'e göre şirketler 
 
 Bu tartışmanın eski bir perdesi var. Google DeepMind CEO'su Demis Hassabis, Temmuz 2026'da FINRA benzeri, ABD destekli bir kamu-özel standartlar kuruluşu önermişti. Teşvikleri, güç yoğunlaşmasını ve kartel riskini [önceki standartlar kuruluşu yazısında](https://www.oguzhan.co/tr/ai-standart-organi-pakt-mi-kartel-mi/) açmıştık. Yeni SAFA haberi o soruları yeniden önümüze koyuyor, fakat Hassabis'in tasarımının aynen kabul edildiğini göstermiyor.
 
+## Peki SAFA ne iş yapmaya aday?
+
+Çalışma grubunun dosyasında üç başlık var: Modeller dağıtıma çıkmadan önce test yapan üçüncü tarafları desteklemek, AI geliştiricilerinin güvenlik olaylarını nasıl bildireceğini belirlemek ve bağımsız denetçiler için nitelik şartları koymak.
+
+İlk bakışta birbirine yakın duruyorlar. Değiller. Pre-deployment test, model kullanıcıya ulaşmadan önce kabiliyet ve risk arar. Olay bildirimi, sorun çıktığında bilginin kimden kime akacağını düzenler. Denetçi niteliği de o incelemeyi yapan kişinin veya şirketin yeterliliğini konu alır. Aynı damganın altında üç ayrı güvence türü var.
+
+Yetki çizgisi de henüz çekilmedi. CNBC TV18'e göre ekip, SAFA'nın ABD'deki Center for AI Standards and Innovation, yani CAISI, yanında güvenlik ve kabiliyet testlerini kendisinin de yürütmesini tartışıyor. Dışarıdaki test ekiplerini destekleyen kuruluş ile testi yapan kuruluş arasında ciddi fark var.
+
+Fakat haberde benchmark listesi, geçme notu, denetçi sınavı veya yaptırım cetveli bulunmuyor. Bunları varmış gibi anlatmak, haber değil kurum tasarlamak olur.
+
+## Kamu, sektör ve özel test ekipleri: Üç ayrı katman
+<!-- INLINE:safa-layers -->
+
+Haritayı tersten kuralım. Model alan bir şirketin karşısına önce özel EvalOps sağlayıcısı, bağımsız test ekibi veya red team çıkabilir. Belirli bir model sürümünü ve deploy senaryosunu incelerler. Türkiye'deki ihtiyaç ve örnekler için [bağımsız AI değerlendirme yazısına](https://www.oguzhan.co/tr/turkiye-bagimsiz-ai-degerlendirme/) bakabilirsiniz. Sözleşmedeki "bağımsız" sıfatını da tek başına yeterli saymayın; sahiplik, ödeme, erişim ve olumsuz sonucu yayımlama hakkı daha çok şey söyler.
+
+Bir üstte SAFA'nın hedeflediği sektör özdenetimi var. OpenAI, Anthropic ve Google ortak prosedür konuşuyor. Teknik ekipleri aynı çerçevede buluşturabilir. Gelgelelim kuralı yazanlarla o kurala tabi ürünleri sunanlar aynı şirketler. Çıkar çatışmasının nasıl yönetileceği bu yüzden tali bir ayrıntı değil.
+
+Kamu katmanında ABD'deki CAISI ile İngiltere'deki AI Security Institute duruyor. Devlet yapısı ve kamu görevi içinde çalışıyorlar. White House ile İngiltere AISI arasındaki model erişimi tartışmasıysa [yakın tarihli yazıda](https://www.oguzhan.co/tr/washington-ingiltere-aisi-model-erisimi/) anlattığımız başka bir yönetim hattı.
+
+Katmanlar yöntem ve veri paylaşabilir. Fakat SAFA, CAISI veya AISI değildir; özel denetçi de SAFA'dan kabul alınca kamu düzenleyicisine dönüşmez. İsim benzerliği yetki ortaklığı yaratmıyor.
+
 ## Bir SAFA damgasına güvenmeden önce sorulacaklar
 <!-- INLINE:safa-checklist -->
 
-Kuruluş faaliyete geçerse logosunu sunumlarda bol bol göreceğiz. Satın alma ve risk ekiplerinin işi logoya bakıp rahatlamak değil, arkasındaki dosyayı istemek. Başlangıç listesi şöyle:
+Kuruluş faaliyete geçerse logosunu sunumlarda bol bol göreceğiz. Satın alma ve risk ekiplerinin işi logoya bakıp rahatlamak değil, arkasındaki dosyayı istemek. Ben şu sırayla ilerlerdim:
 
-1. **Kuruluş sözleşmesini kim yazıyor?** Finansmanı, oy haklarını, veto yetkisini, çıkar çatışması sürecini ve üyelikten çıkarma yolunu sorun. Bunlar kapalıysa risk kaydına aynen yazın.
+1. **Damga neyi doğruluyor?** Benchmark sonucu, bağımsız denetim, sertifika ve üçüncü taraf teste verilen destek ayrı şeyler. Model sürümü, test tarihi, kontrol listesi, hariç tutulan alanlar ve geçerlilik süresi belgeye girmeli.
 
-2. **Verilen güvence tam olarak ne?** Benchmark sonucu, bağımsız denetim, sertifika ve üçüncü taraf teste maddi destek aynı şey değil. Model sürümü, test tarihi, kontrol listesi, hariç tutulan alanlar ve geçerlilik süresi belgeye girmeli.
+2. **Kuralı görebiliyor muyuz?** Test protokolü, olay bildirim alanları, önem dereceleri, sürüm geçmişi ve düzeltme kayıtları alıcıya açık olmalı. Üyelerin kendi arasında bildiği kural, dışarıdaki müşteri için zayıf kanıt.
 
 3. **Bağımsızlık nasıl korunuyor?** Denetçinin ücretini model geliştiricisi mi ödüyor? Üye lab'ler denetçiyi onaylıyor mu? Olumsuz bulgu yayımlanabiliyor mu? "Bağımsız" sözcüğü bu soruların cevabı kadar değerli.
 
-4. **CAISI ve AISI ile ilişki ne?** Kamu kurumlarının yöntemi ve sonucu inceleyip inceleyemediğini, aynı testin tekrar yapılıp yapılmadığını, sonuçlar çelişirse hangi sürecin işleyeceğini öğrenin.
+4. **Kararı kim kontrol ediyor?** Kuruluşun finansmanı, oy hakları, veto yetkisi, çıkar çatışması süreci ve üyelikten çıkarma yolu açıklanmalı. Bunlar kapalıysa risk kaydına aynen geçsin.
 
-5. **Standartlar herkesin erişimine açık mı?** Test protokolü, olay bildirim alanları, önem dereceleri, sürüm geçmişi ve düzeltme kayıtları alıcının inceleyebileceği şekilde yayımlanmalı. Üyelere kapalı kurallar lab'ler arasında düzen sağlayabilir; dışarıya pek az kanıt sunar.
+5. **Kamu kurumları nerede duruyor?** CAISI ve AISI yöntemi veya sonucu inceleyebiliyor mu, aynı test tekrarlanıyor mu, iki taraf çelişirse hangi süreç işliyor? "Uyumlu" sözcüğü yerine belge isteyin.
 
-6. **Olay çıktığında ne oluyor?** Kimin, kime, ne kadar sürede bildirim yapacağı ve hangi bilginin açıklanacağı belli olmalı. SAFA kendi kurallarını yayımlayana dek şirket içi escalation ve kanıt saklama sürecini korumak gerekiyor.
+6. **Olay çıktığında ne oluyor?** Kimin, kime, ne kadar sürede bildirim yapacağı ve hangi bilginin açıklanacağı belli olmalı. SAFA kendi kuralını yayımlayana dek şirket içi escalation ve kanıt saklama sürecini korumak gerekiyor.
 
 Liste parlak değil. Zaten iyi denetim malzemesi genellikle parlak olmaz.
 
 ## Bundan sonra neyi izleyeceğiz?
 
-SAFA'yı haber başlığından çıkarıp incelenebilir bir kuruma dönüştürecek üç işaret var: yayımlanmış yönetim belgesi, test ve olay bildirimi için kesin yetki sınırı, üye lab'lere erişimini kaybetmeden itiraz edebilen dış denetçiler. 24 ve 25 Eylül tarihli haberlerde bunların hiçbiri teyit edilmiş değil.
+SAFA'yı haber başlığından çıkarıp incelenebilir bir kuruma dönüştürecek işaretler belli: yayımlanmış yönetim belgesi, test ve olay bildirimi için kesin yetki sınırı, üye lab'lere erişimini kaybetmeden itiraz edebilen dış denetçiler. 24 ve 25 Eylül tarihli haberlerde bunların hiçbiri teyit edilmiş değil.
 
 O zamana kadar SAFA dosyasını "önerilen sektör altyapısı" etiketiyle saklamak en doğrusu. Gelişmeleri [oguzhan.co yapay zeka sayfasından](https://www.oguzhan.co/tr/yapay-zeka/) izleyebilirsiniz. Kuruluş günü gelirse asıl haber kısaltması değil; sözleşmesi, yöntemi, çıkar çatışması kuralları ve kamuya açtığı kayıtlar olacak.
