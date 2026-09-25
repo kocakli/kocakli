@@ -11,7 +11,7 @@ categories_note: "coordinator maps IDs"
 
 SAFA AI standartlar kuruluşu şimdilik bir isimden ve çalışma grubu haberinden ibaret. OpenAI, Anthropic ve Google'ın Standards Authority for Frontier AI adında sektör öncülüğünde bir özdenetim kuruluşu hazırladığı söyleniyor. Kurulmuş değil. Kanun hiç değil. CAISI ya da İngiltere'deki AISI için bulunmuş yeni bir ad da değil.
 
-Yine de kenara atılacak bir haber yok karşımızda. En güçlü frontier modellerden bazılarını üreten üç şirket; model testinin, güvenlik olayı bildiriminin ve bağımsız denetçi niteliğinin nasıl tanımlanacağını konuşuyor. Bu, satın alma yapan herkesin dosyasına girmeli. Yanına kalın harflerle şu notu düşerek: Henüz ortada işleyen bir kurum yok.
+Yine de kenara atılacak bir haber yok karşımızda. Frontier model üreten üç şirket; model testinin, güvenlik olayı bildiriminin ve bağımsız denetçi niteliğinin nasıl tanımlanacağını konuşuyor. Bu, satın alma yapan herkesin dosyasına girmeli. Yanına kalın harflerle şu notu düşerek: Henüz ortada işleyen bir kurum yok.
 
 ## SAFA AI standartlar kuruluşu için bildiğimiz ilk şey: Henüz kurulmadı
 

@@ -11,7 +11,7 @@ categories_note: "coordinator maps IDs"
 
 The Standards Authority for Frontier AI is, for now, a reported plan. OpenAI, Anthropic, and Google are said to be discussing an industry-led standards and self-regulatory organization under the provisional name SAFA. It has not launched. It is not a law, a government agency, or another name for a national AI Security Institute.
 
-That distinction matters more than the acronym. If SAFA opens as reported, the companies building some of the most capable commercial models would help shape rules for testing, incident reports, and auditor qualifications. Buyers should pay attention, but they should not mistake a proposed institution for a working assurance system.
+That distinction matters more than the acronym. If SAFA opens as reported, three companies that build frontier models would help shape rules for testing, incident reports, and auditor qualifications. Buyers should pay attention, but they should not mistake a proposed institution for a working assurance system.
 
 ## Standards Authority for Frontier AI: reported, not launched
 

@@ -10,8 +10,8 @@
 
 ## Word counts
 
-- EN substance words: pending final automated count
-- TR substance words: pending final automated count
+- EN substance words: 1,241
+- TR substance words: 981
 - Count method: body copy only; YAML frontmatter, Markdown headings, URLs, and HTML placeholders excluded
 
 ## Focus placement
