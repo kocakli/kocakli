@@ -10,7 +10,7 @@
 
 ## Word counts
 
-- EN substance words: 1,241
+- EN substance words: 1,240
 - TR substance words: 981
 - Count method: body copy only; YAML frontmatter, Markdown headings, URLs, and HTML placeholders excluded
 
