@@ -1,0 +1,131 @@
+<p><strong>Noul, TypeSafe Jev içinde evet/hayır biçimindeki bir önermenin doğru olma olasılığını 0 ile 1 arasında döndüren tipli soru.</strong> Sohbet modeli değil; genel amaçlı programlama dili ya da Python’daki <code>bool</code> gibi yerleşik veri tipi de değil. Jev ve System One API’sinde Choice ile Score’un yanında duran karar primitive’lerinden biri.</p>
+<p>“Bu mesaj iade talebi içeriyor mu?” diye sorarsınız, <code>noul</code> alanında sayısal cevap alırsınız. Kod da uzun bir model açıklamasını didiklemek yerine bu olasılığı kendi eşiğiyle değerlendirir.</p>
+<p>Konuya yapay zekanın daha geniş tarafından geldiyseniz <a href="https://www.oguzhan.co/tr/yapay-zeka/">Yapay Zeka sayfasına</a> bakabilirsiniz. TypeSafe’in neden uzun metin üretmek yerine dar kararlar peşinde olduğunu ise <a href="https://www.oguzhan.co/tr/typesafe-jev-system-one-karar-modeli/">Jev ve System One merkez yazısında</a> anlatmıştım. Burada işin API tarafındayız.</p>
+
+<h2>Noul ne demek, dönen sayı nasıl okunur?</h2>
+<p>Adı ilk bakışta pek ipucu vermiyor. Çalışma biçimi hayli açık:</p>
+<ul>
+<li><code>1</code> civarı, eldeki verinin “evet” cevabını güçlü biçimde desteklediğini gösterir.</li>
+<li><code>0</code> civarı, “hayır” tarafının ağır bastığını söyler.</li>
+<li><code>0,5</code> civarında model iki okuma arasında kalmıştır.</li>
+</ul>
+<p>Ortadaki değer “orta seviye” değildir. Çünkü Noul bir seviye ölçmüyor, önermenin doğru olup olmadığını tartıyor. “Bu hata ciddi mi?” netleştirilmiş bir evet/hayır sorusu olabilir. “Bu hata ne kadar ciddi?” ise Score işidir.</p>
+<p>“Noul data type” aramasındaki veri tipi ifadesini de doğru yere koyalım. Noul, Jev API’sindeki tipli soru ve cevap primitive’idir. Dönen değer sayısal olsa da genel programlama dillerine eklenen yeni bir skaler veri türü değil. “Noul programming” diye ayrı bir dil de yok. Terim, TypeSafe’in kısıtlı ve kodun kullanabileceği karar arayüzüne ait.</p>
+<p>Noul cevabında ayrıca <code>confidence</code> alanı bulunmuyor. Olasılığın kendisi sinyal. Örneğin <code>0,93</code>, verilen state ve soruya göre evet ihtimalinin yüzde 93 hesaplandığını anlatır; cevabın yüzde 93 doğruluk garantisi taşıdığını değil. Aradaki fark, üretimde epey masraf çıkarabilir.</p>
+
+<h2>Üç primitive, üç ayrı kod yolu</h2>
+<p>Bir destek kaydını düşünelim. Mesaj hangi ekibe gidecek? Müşteri ne kadar öfkeli? İade istiyor mu? İnsan gözüne yakın duran bu üç soru, kod açısından aynı yapıda değil.</p>
+<ul>
+<li><strong>Choice</strong>, önceden belirlenmiş ve sırasız seçeneklerden birini seçer.</li>
+<li><strong>Score</strong>, yazdığınız sıralı seviyeler üzerinde konum verir.</li>
+<li><strong>Noul</strong>, tek ve açık bir önermenin evet olasılığını hesaplar.</li>
+</ul>
+<p>Sonucun gideceği yere bakmak iyi bir kestirme. <code>switch</code> dalı gerekiyorsa Choice, sıralı eşikler gerekiyorsa Score, doğrudan bir <code>if</code> koşulu gerekiyorsa Noul çoğu zaman doğru başlangıçtır.</p>
+
+<h2>Choice için menünün tamamını yazın</h2>
+<p>Destek talebi <code>billing</code>, <code>technical</code>, <code>sales</code> ya da <code>other</code> kuyruklarından birine gidecekse Choice kullanılır. Seçenekler arasında iyiden kötüye sıralama yoktur. Model kapalı listedeki anahtarlardan birini seçer.</p>
+<p>Cevapta seçilen <code>choice</code>, bütün seçeneklere dağıtılan <code>probabilities</code> ve dağılımın ne kadar tek noktada toplandığını özetleyen <code>confidence</code> yer alır. Seçilen anahtar doğrudan kod dalına bağlanabilir.</p>
+<p>Liste eksikse sorun başlar. Gerçek hayatta dördüncü ihtimal varsa ama siz üç seçenek verdiyseniz model yine onlardan birini döndürür. <code>other</code> ya da <code>none_of_the_above</code> kaçış yolu bu yüzden süs değil. Şemaya uygun yanlış cevap hâlâ yanlış cevaptır.</p>
+
+<h2>Score için cetveli tarif edin</h2>
+<p>Öfke, risk, beceri ve hata şiddeti sıralı ölçülerdir. Score bu çizgi üstünde sayısal konum döndürür; değer iki tarifin arasına da düşebilir. Cevaba <code>legend</code>, seviye olasılıkları ve <code>confidence</code> eşlik eder.</p>
+<p>“Düşük, orta, yüksek” yazmak kolay. Ne var ki destek ekibindeki iki kişi aynı bilete farklı anlam yüklüyorsa modelden tutarlılık beklemek iyimserlik olur. “Görsel kusur”, “geçici çözümü olan iş akışı engeli”, “veri kaybı ya da güvenlik riski” gibi tarifler daha işe yarar.</p>
+<p>Eşikler de hazır gelmiyor. Etiketli örnekleri çalıştırıp hangi aralığın hangi eyleme bağlanacağını ölçmeniz gerekir. Tek cevap hoş göründü diye <code>2,3</code> üstünü acil ilan etmek politika sayılmaz.</p>
+
+<h2>Noul sorusunu küçültün</h2>
+<p>Noul’un sevdiği cümleler kısa ve denetlenebilir:</p>
+<ul>
+<li><code>ticket_message</code> açıkça iade talep ediyor mu?</li>
+<li><code>ticket.messages[0].text</code> kişisel veri içeriyor mu?</li>
+<li>Özgeçmiş, adayın ücretli bir işte Python kullandığını söylüyor mu?</li>
+</ul>
+<p>Son örnekte beceri seviyesi sorulmuyor. Belgede belirli bir iddianın bulunup bulunmadığı kontrol ediliyor. “Aday Python’da ne kadar iyi?” derseniz Score’a geçmek gerekir.</p>
+<p><a href="https://docs.typesafe.ai/primitives">TypeSafe primitive dokümanındaki</a> pratik ölçü şu: Bilgili biri, önündeki kanıta bakarak bu yargıya hızlıca varabilir mi? “Hesabı incele, politikayı yorumla, en uygun çözümü bul ve müşteriye yanıt yaz” bu ölçüyü geçmez. Veri toplama, politika kontrolü, karar ve metin üretimi aynı cümleye sıkışmış. Ayırın, aradaki bağı kod kursun.</p>
+
+<h2>Jev sorusunun içinde ne var?</h2>
+<p>Primitive’ler farklı cevap verse de soru yapısında tanıdık parçalar bulunur:</p>
+<ul>
+<li>Kodun cevabı bulacağı <strong>ID</strong>, örneğin <code>refund_requested</code>.</li>
+<li><code>choice</code>, <code>score</code> ya da <code>noul</code> değerlerinden oluşan <strong>type</strong>.</li>
+<li>Modelin okuyacağı yargıyı taşıyan <strong>instructions</strong>.</li>
+<li>Gereken tiplerde seçenekleri veya seviyeleri açıklayan <strong>criteria</strong>.</li>
+</ul>
+<p>ID kod içindir. Değişkene <code>policy_match</code> adını vermek; hangi politikanın, hangi olayla, state içindeki hangi alanlara bakılarak karşılaştırılacağını modele anlatmaz. Instructions alanında tam soruyu yazmak gerekiyor.</p>
+<p>Noul’da evet ve hayır zaten belli olduğu için seçenek listesi aranmaz. Yine de alanınıza özgü sınırı criteria ile açıklayabilirsiniz. Mesela “iade talebi” chargeback tehdidini kapsıyor ama mağaza kredisi isteğini kapsamıyorsa bu ayrımı modele bırakmayın.</p>
+
+<h2>Tek state içinde Choice, Score ve Noul</h2>
+<p>Uçuşu iptal edilen müşteri örneğini Python SDK ile kuralım:</p>
+<pre class="wp-block-code"><code class="language-python">from typesafe_sdk import Choice, Noul, Score, TypeSafeClient
+
+state = {
+    "ticket_message": "Uçuşum iptal oldu. Paramı geri alabilir miyim?",
+    "refund_policy": "İptal edilen uçuşlarda ücretin tamamı iade edilir.",
+}
+
+questions = {
+    "request_type": Choice(
+        instructions="`ticket_message` içindeki ana talep nedir?",
+        criteria={
+            "refund": "Müşteri ücretin geri ödenmesini istiyor.",
+            "rebooking": "Müşteri yeni uçuş istiyor.",
+            "information": "Müşteri yalnız bilgi istiyor.",
+            "other": "Talep diğer seçeneklere uymuyor.",
+        },
+    ),
+    "frustration": Score(
+        instructions="`ticket_message` içindeki öfke düzeyi nedir?",
+        criteria=[
+            "Sakin ve nötr.",
+            "Endişeli fakat ölçülü.",
+            "Çok öfkeli ya da sert ifadeler kullanıyor.",
+        ],
+    ),
+    "refund_requested": Noul(
+        instructions="`ticket_message` açıkça iade talep ediyor mu?",
+    ),
+}
+
+with TypeSafeClient() as client:
+    response = client.system_one(state=state, questions=questions)</code></pre>
+<p><code>state</code> bir kez gönderiliyor. Sorular aynı veriyi görüyor, bağımsız çalışıyor ve seçtiğiniz ID altında dönüyor.</p>
+<p>Buradaki “bağımsız” sözcüğü önemli. Aynı çağrıdaki <code>request_type</code> sonucu, <code>refund_requested</code> sorusuna gizli bilgi olarak aktarılmaz. İkinci soru ilk cevaba göre kurulacaksa önce cevabı kodda alın, gereken veriyi çekin ya da state’i yeniden hazırlayın, ardından yeni çağrı yapın. İkisi de ilk state’ten yanıtlanabiliyorsa ayırmanın pek anlamı yok.</p>
+
+<h2>JSON büyüdüğünde field path kullanın</h2>
+<p>Gerçek destek kaydında mesajlar, sipariş, ödeme hareketleri, iade politikası ve iç notlar yan yana durur. “Müşteri iade istiyor mu?” sorusu modelin yanlış parçaya bakmasına izin verebilir.</p>
+<p>İlgili alanı backtick içinde nokta ve indeks yoluyla gösterin:</p>
+<pre class="wp-block-code"><code>`ticket.messages[0].text` iade talebi içeriyor mu?</code></pre>
+<p>İki alanı karşılaştıran soru da açıkça yazılabilir:</p>
+<pre class="wp-block-code"><code>`refund_policy`, `order.charges` içindeki çift çekimi kapsıyor mu?</code></pre>
+<p>Field path burada JSON üstünde yürütülen kod değil. Modelin okuyacağı adres. Sonradan soruyu gözden geçiren geliştirici de cevabın hangi kanıta dayanması gerektiğini hemen görür.</p>
+
+<h2>On üç ayrı çağrının faturası</h2>
+<p>System One, aynı state’e bakan soruları paralel değerlendirebiliyor. Bu yüzden bağımsız Choice, Score ve Noul sorularını tek istekte toplamak çoğu durumda daha akıllıca.</p>
+<p>TypeSafe’in <a href="https://docs.typesafe.ai/cookbooks/parallel_questions">parallel-questions cookbook</a> örneğinde büyük belgeye 13 soru yöneltilmiş. Bu yazının ilk sürümünde kullanılan kaynak anlık görüntüsünde tek paket; 13 sıralı çağrıya göre yaklaşık <strong>11,5 kat ucuz</strong> ve <strong>9,6 kat hızlı</strong> raporlanmış, cevaplar değişmemiş. Bunlar her proje için vaat değil, o koşunun rakamları. Model sürümü, cache, ağ konumu ve eşzamanlı çalışma sonucu değiştirir.</p>
+<p>Nedeni gayet sıradan. Uzun belgeyi bir kez göndermek, aynı token’ları 13 defa ücretlendirmekten ucuz. Sıralı istekler 13 ağ turu da ekliyor. Çağrıları eşzamanlı yapınca süre farkı daralabilir fakat tekrar gönderilen girdi ortadan kalkmaz.</p>
+<p>TypeSafe bu yaklaşıma <strong>speculative fan-out</strong> diyor. Programın ihtiyaç duyabileceği bağımsız soruları baştan gönderiyor, o vakada gerekmeyen cevapları kodda kullanmıyorsunuz. Destek kaydı; departman için Choice, iade isteği ve PII için iki Noul, öfke ile hata şiddeti için iki Score taşıyabilir. Kayıt hata raporu değilse şiddet cevabı çöpe gider.</p>
+<p>Gerçek bağımlılığı paket uğruna gizlemeyin. İlk cevap hangi veritabanı kaydının çekileceğini ya da sonraki Choice seçeneklerini belirliyorsa iki aşama daha doğru.</p>
+
+<h2>Karar politikasının yeri kod</h2>
+<p>Jev dar yargılar üretir. Bu yargıların ne zaman ödeme, iptal ya da insan incelemesi başlatacağını uygulama belirlemeli.</p>
+<p>Bilet önceliği iş etkisi, müşteri öfkesi ve kanıt kalitesine bağlıysa üç Score sorun. Sonuçları normalize edin, ağırlıkları kodda verin. Destek politikası değiştiğinde büyük prompt’ın içine yeni paragraf saklamak yerine katsayıyı değiştirirsiniz. Fark da git geçmişinde görünür.</p>
+<p>Noul iki koşulun birlikte arandığı bir kararda şöyle kullanılabilir:</p>
+<pre class="wp-block-code"><code class="language-python">if refund_requested &gt; 0.85 and policy_match &gt; 0.90:
+    queue_for_refund_review()
+else:
+    send_to_human()</code></pre>
+<p><code>0,85</code> ve <code>0,90</code> örnek değerler. Jev’in hazır eşiği değiller. Kendi etiketli vakalarınızda false positive ile false negative maliyetini ayrı ölçüp eşikleri öyle seçin.</p>
+
+<h2>Tipli cevap doğruluk garantisi vermez</h2>
+<p>Choice izinli anahtarlardan yanlış olanı seçebilir. Score sakin müşteriyi öfkeli sanabilir. Noul hatalı okumaya <code>0,9</code> verebilir. Temiz şema, entegrasyonu kolaylaştırır; sonucu kendiliğinden güvenilir kılmaz.</p>
+<p>Geri çevrilmesi zor bir tool çağrısından önce üretime benzeyen veriyle eval çalıştırın, deterministik izin ve politika kontrollerini koruyun, insana giden güvenli yolu kapatmayın. Test ettiğiniz model ile sağlayıcı sürümünü sabitlemek de sonradan neyin değiştiğini anlamayı kolaylaştırır.</p>
+<p>Akılda tutulacak ayrım şu: Choice kodunuza dal, Score konum, Noul ise evet olasılığı verir. System One yargıyı üretir. O yargının yetkisini uygulamanız belirler.</p>
+
+<h2>Kaynaklar</h2>
+<ul>
+<li><a href="https://docs.typesafe.ai/primitives">TypeSafe dokümantasyonu: Primitives (Questions)</a></li>
+<li><a href="https://docs.typesafe.ai/cookbooks/parallel_questions">TypeSafe cookbook: Parallel questions</a></li>
+<li><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe AI: Introducing System One Models and Jev</a></li>
+<li><a href="https://github.com/cobanov/awesome-jev">cobanov/awesome-jev</a></li>
+<li><a href="https://www.oguzhan.co/tr/typesafe-jev-system-one-karar-modeli/">oguzhan.co: TypeSafe Jev ve System One merkez yazısı</a></li>
+<li><a href="https://vercel.com/changelog/typesafe-ai-jev-now-available-on-ai-gateway">Vercel: Jev on AI Gateway</a></li>
+</ul>
