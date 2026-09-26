@@ -1,0 +1,139 @@
+<p><strong>Noul means a typed yes/no probability question in TypeSafe Jev:</strong> it asks whether a proposition is true and returns the probability of “yes” as a number from 0 to 1. It is not a chat model, and it is not a general programming language data type.</p>
+<p>In Jev and TypeSafe’s System One model, Noul is one of three question primitives beside Choice and Score. A Noul answer is deliberately small, so application code can test a threshold without extracting a verdict from generated prose.</p>
+<p>If you arrived here through the wider AI topic, the <a href="https://www.oguzhan.co/ai/">AI hub</a> has the surrounding coverage. The <a href="https://www.oguzhan.co/typesafe-jev-system-one-decision-model/">TypeSafe Jev and System One guide</a> explains the larger decision-model argument; this tutorial stays with the programming surface.</p>
+
+<h2>What Noul means in AI and Jev</h2>
+<p>The name is unusual. The behavior is not. Give Jev some <code>state</code> and a proposition such as “Does this message request a refund?” A Noul question returns a single <code>noul</code> value.</p>
+<ul>
+<li>A value near <strong>1</strong> means the supplied evidence strongly favors yes.</li>
+<li>A value near <strong>0</strong> means it strongly favors no.</li>
+<li>A value near <strong>0.5</strong> means the model is split between the two readings.</li>
+</ul>
+<p>That middle value does not mean “medium.” There is no medium category in a yes/no proposition. If the real question is “How severe is this bug?”, the shape is wrong for Noul. That calls for Score.</p>
+<p>Searches for “Noul data type” point to a useful distinction. In Jev, Noul is a typed question and answer primitive in the API. It is not a built-in scalar like a Python <code>bool</code> or <code>float</code>, although the returned probability is numeric. Nor does “Noul programming” name a separate language. The term belongs to Jev’s constrained decision interface.</p>
+<p>Noul also has no separate <code>confidence</code> field. Its probability is the signal. A result of <code>0.93</code> says the model assigns a 93 percent probability to yes under the question and state you supplied. It does not certify that the proposition is true.</p>
+
+<h2>Choice, Score, or Noul?</h2>
+<p>The fastest way to pick a Jev primitive is to look at the branch your code needs next.</p>
+<ul>
+<li><strong>Choice</strong> selects one member of a closed, unordered list.</li>
+<li><strong>Score</strong> places the evidence on ordered levels you define.</li>
+<li><strong>Noul</strong> estimates the yes probability of one crisp proposition.</li>
+</ul>
+<p>Suppose a support ticket says, “My flight was cancelled. Can I get a refund?” The destination queue might be a Choice among <code>billing</code>, <code>rebooking</code>, and <code>other</code>. The customer’s frustration fits a Score rubric. Whether the message requests a refund is a Noul.</p>
+<p>All three are constrained questions, but they constrain different things. Getting the shape right matters more than inventing a clever prompt.</p>
+
+<h2>Choice picks from a map you supply</h2>
+<p>Choice works when the possible routes are known before the call. Support department, document class, request intent, and programming language are common cases.</p>
+<p>A Choice answer contains the selected <code>choice</code>, a <code>probabilities</code> distribution over every option, and a <code>confidence</code> summary. Your code can feed the selected key into a <code>switch</code> without cleaning up free text.</p>
+<p>The closed list creates a responsibility. If production input can sit outside your named categories, include <code>other</code> or <code>none_of_the_above</code>. Otherwise the model must choose the least-wrong option. A valid key can still be a bad classification.</p>
+
+<h2>Score measures position on an ordered scale</h2>
+<p>Score is for severity, frustration, skill, risk, or another judgment with ordered levels. Jev returns a numeric position, which may fall between two labels, along with the legend, level probabilities, and confidence.</p>
+<p>The rubric carries most of the quality. “Low, medium, high” hides the policy in three vague words. “Cosmetic issue,” “workflow blocked but a workaround exists,” and “data loss or security exposure” gives reviewers a scale they can test against labeled examples.</p>
+<p>A Score becomes useful after code maps ranges to an action. Set those ranges from your own cases and error costs. The pretty shape of one response is not calibration.</p>
+
+<h2>Noul asks one proposition at a time</h2>
+<p>Good Noul questions can be answered yes or no from the supplied state:</p>
+<ul>
+<li>Does <code>ticket_message</code> request a refund?</li>
+<li>Does <code>ticket.messages[0].text</code> contain personally identifiable information?</li>
+<li>Does the resume state that the candidate used Python in paid work?</li>
+</ul>
+<p>Compare the last question with “How skilled is the candidate in Python?” The first checks whether a specific claim is supported. The second asks for a graded judgment and should be a Score.</p>
+<p>Keep the proposition narrow enough that a knowledgeable reviewer could make the judgment quickly from the same evidence. “Analyze the account, interpret the refund policy, pick the best remedy, and write a reply” is not one Noul. It combines evidence retrieval, policy logic, a decision, and text generation. Split those jobs, then join the results in code.</p>
+
+<h2>The anatomy of a Jev question</h2>
+<p>The <a href="https://docs.typesafe.ai/primitives">TypeSafe primitives documentation</a> describes four pieces that recur across these questions:</p>
+<ul>
+<li>an <strong>ID</strong>, such as <code>refund_requested</code>, which your program uses to retrieve the answer;</li>
+<li>a <strong>type</strong>: <code>choice</code>, <code>score</code>, or <code>noul</code>;</li>
+<li><strong>instructions</strong> containing the actual judgment;</li>
+<li>and, when the type needs them, <strong>criteria</strong> defining options or levels.</li>
+</ul>
+<p>The ID is for your application. It is not a substitute for instructions. Calling a question <code>policy_match</code> does not tell the model which policy, which claim, or which part of the state should be compared.</p>
+<p>Noul usually needs no list of options because yes and no are already implied. Criteria can still sharpen the boundary when a term has a domain-specific meaning. If “refund request” includes chargeback threats but excludes a request for store credit, write that rule where the model can see it.</p>
+
+<h2>Working code: one state, three question types</h2>
+<p>A single System One call can mix Choice, Score, and Noul. Here is the support-ticket shape using TypeSafe’s Python SDK:</p>
+<pre class="wp-block-code"><code class="language-python">from typesafe_sdk import Choice, Noul, Score, TypeSafeClient
+
+state = {
+    "ticket_message": "My flight was cancelled. Can I get a refund?",
+    "refund_policy": "Cancelled flights qualify for a full refund.",
+}
+
+questions = {
+    "request_type": Choice(
+        instructions="What is the main request in `ticket_message`?",
+        criteria={
+            "refund": "The customer wants money returned.",
+            "rebooking": "The customer wants another flight.",
+            "information": "The customer only wants information.",
+            "other": "The request does not fit the other options.",
+        },
+    ),
+    "frustration": Score(
+        instructions="How frustrated is the customer in `ticket_message`?",
+        criteria=[
+            "Calm and neutral.",
+            "Concerned but civil.",
+            "Very angry or using strong language.",
+        ],
+    ),
+    "refund_requested": Noul(
+        instructions="Does `ticket_message` explicitly request a refund?",
+    ),
+}
+
+with TypeSafeClient() as client:
+    response = client.system_one(state=state, questions=questions)</code></pre>
+<p>The state is sent once. Every question sees that state, runs independently, and returns under the ID chosen by the application.</p>
+<p>Independence is easy to miss. The answer to <code>request_type</code> does not become hidden context for <code>refund_requested</code> inside the same call. If question B truly depends on answer A, receive A in code, fetch or rebuild whatever B needs, then make the second call. When both judgments can be made from the original state, keep them together.</p>
+
+<h2>Use a field path when the state gets large</h2>
+<p>A production state object may hold a message thread, order, payment records, policy text, and internal notes. “Does the customer request a refund?” leaves room for the model to inspect the wrong passage.</p>
+<p>Name the relevant field path in backticks:</p>
+<pre class="wp-block-code"><code>Does `ticket.messages[0].text` request a refund?</code></pre>
+<p>A policy check can point to two places:</p>
+<pre class="wp-block-code"><code>Does `refund_policy` cover the duplicate charges in `order.charges`?</code></pre>
+<p>These paths are not expressions executed against the JSON object. They are precise references inside the instructions. The benefit reaches beyond the model: an engineer reviewing the question can see which evidence is supposed to control the answer.</p>
+
+<h2>Batch independent questions before making another call</h2>
+<p>System One evaluates questions in parallel. When several judgments use the same state, one request avoids sending a large document again and again.</p>
+<p>The <a href="https://docs.typesafe.ai/cookbooks/parallel_questions">TypeSafe parallel-questions cookbook</a> tested 13 questions over one large document. In the source snapshot used for the original version of this post, a batched request was reported as about <strong>11.5 times cheaper</strong> and <strong>9.6 times faster</strong> than 13 sequential calls, with unchanged answers. Those figures belong to that documented run, not to every workload. Model versions, caching, network placement, and concurrency can move them.</p>
+<p>The underlying reason is less dramatic than the ratios. One long input upload usually costs less than repeating the same input 13 times. Sequential calls also pay 13 network round trips. Concurrent requests narrow the wall-clock gap, but repeated input tokens remain.</p>
+<p>TypeSafe calls the related pattern <strong>speculative fan-out</strong>: include every independent question the program may need, then ignore answers that are irrelevant to this case. A ticket can carry a department Choice, a refund-intent Noul, a frustration Score, a PII Noul, and a bug-severity Score in one request. If the ticket is not a bug report, discard the severity answer.</p>
+<p>Do not batch a real dependency merely to save a call. If the first answer decides which database row to fetch or which options the second Choice may contain, two stages are honest and easier to inspect.</p>
+
+<h2>Turn probabilities into policy in code</h2>
+<p>Jev produces constrained judgments. It should not quietly own the business policy around them.</p>
+<p>For ticket priority, ask separate Score questions about business impact, frustration, and evidence quality. Normalize the outputs and apply weights in code. When the support policy changes, the changed coefficient is visible in a diff instead of being buried in a larger prompt.</p>
+<p>Noul naturally becomes a gate:</p>
+<pre class="wp-block-code"><code class="language-python">if refund_requested &gt; 0.85 and policy_match &gt; 0.90:
+    queue_for_refund_review()
+else:
+    send_to_human()</code></pre>
+<p>The numbers above are examples, not Jev defaults. Choose thresholds with labeled, production-like cases. Measure false positives and false negatives separately because their costs are rarely equal.</p>
+
+<h2>A typed answer can still be wrong</h2>
+<p>Constrained output fixes an interface problem. It does not grant factual certainty. Choice can select the wrong allowed key, Score can overrate a heated phrase, and Noul can assign <code>0.9</code> to a mistaken reading.</p>
+<p>Before a result triggers payment, account closure, data deletion, or another hard-to-reverse action:</p>
+<ul>
+<li>run evals on production-like data;</li>
+<li>track both kinds of classification error;</li>
+<li>keep deterministic policy and permission checks;</li>
+<li>provide a human or safe fallback path;</li>
+<li>pin the model and provider version used by the tested workflow.</li>
+</ul>
+<p>The clean mental model is enough: Choice gives code a branch, Score gives it a position, and Noul gives it the probability of yes. TypeSafe’s System One supplies those judgments. Your application still decides what they are allowed to do.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://docs.typesafe.ai/primitives">TypeSafe documentation: Primitives (Questions)</a></li>
+<li><a href="https://docs.typesafe.ai/cookbooks/parallel_questions">TypeSafe cookbook: Parallel questions</a></li>
+<li><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe AI: Introducing System One Models and Jev</a></li>
+<li><a href="https://github.com/cobanov/awesome-jev">cobanov/awesome-jev</a></li>
+<li><a href="https://www.oguzhan.co/typesafe-jev-system-one-decision-model/">oguzhan.co: TypeSafe Jev and System One guide</a></li>
+<li><a href="https://vercel.com/changelog/typesafe-ai-jev-now-available-on-ai-gateway">Vercel: Jev on AI Gateway</a></li>
+</ul>
