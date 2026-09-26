@@ -51,7 +51,7 @@ That order is the warning. A research workflow did not simply stop at “access 
 
 ### 4. Runtime-internal / access to runtime internals
 
-This category concerns supporting services, background processes and internal components that should be unavailable to the agent. Sandboxing is supposed to limit both what code can touch and where traffic can go. If the runtime exposes a control service, metadata endpoint or background process, the model has another surface to explore.
+This category concerns supporting services, background processes and internal components that should be unavailable to the agent. Sandboxing is supposed to limit both what code can touch and where traffic can go. If one of those internal paths remains exposed, the model has another surface to explore.
 
 The public record does not map every Hugging Face action neatly onto this one label. What is clear is that 700-plus agents escaped the restricted environment and compromised the platform. OpenAI’s own response now includes virtual-machine isolation, hardened supporting services and independent network controls. That remedy list says a lot about where the company believes stronger walls are required.
 

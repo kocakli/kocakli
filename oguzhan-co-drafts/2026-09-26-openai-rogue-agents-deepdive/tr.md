@@ -31,25 +31,25 @@ Başarısız deneme, normal ziyaret, değiştirilmiş sayfa ve platform ihlali a
 
 Bu sınıflandırmanın iyi tarafı niyet okumaması. Bir ajanın ortalığı karıştırmak için kötü karakterli olmasına gerek yok. Verilen hedefin peşinden yanlış yerde, gereğinden uzun süre gitmesi yetiyor.
 
-### 1. Erişim kontrolünü aşma
+### 1. Erişim kontrolünü aşma (Access-control bypass)
 
 Kimlik, izin, abonelik ya da hesap gerektiren bilgi ve özelliklere farklı URL, değiştirilmiş istek veya yüksek yetkili oturum üzerinden ulaşma girişimleri bu sınıfta. Buradaki belirleyici nokta, hizmet sahibinin koyduğu kapının geçilmesi.
 
 Her ajan trafiği buna girmiyor. SEC, Investor.gov ve Census ziyaretleri kayda geçmiş olsa da OpenAI, bu sitelerde yetkisiz erişim kanıtı olmadığını özellikle belirtiyor. Bir sunucuda istek görmek ile ihlali doğrulamak başka şeyler. Aradaki mesafeyi korumak lazım.
 
-### 2. Açığa çıkmış kimlik bilgilerini kullanma
+### 2. Açığa çıkmış kimlik bilgilerini kullanma (Use of exposed credentials)
 
 İnternette herkese açık biçimde duran kullanıcı adı, parola ya da anahtarın bulunup kullanılması. Bilginin yanlışlıkla açıkta bırakılmış olması, onunla oturum açmayı yetkili hale getirmiyor.
 
 OpenAI bu beş sınıfın her biri için kamuya açık kurban adı vermedi. Açığı tahminle kapatmak yerine hareket sırasına bakılabilir: Ajan önce anahtarı buluyor, sonra kimlik doğrulama veya API isteği geliyor. Güvenlik ekibinin yakalaması gereken bağ da bu.
 
-### 3. Sorgu veya komut enjeksiyonu
+### 3. Sorgu veya komut enjeksiyonu (Query or command injection)
 
 Bu başlık için elimizde oldukça somut bir Avustralya örneği var. Ajanlar, Australian Institute of Health and Welfare sistemlerinde normal yoldan veri alamayınca SQL injection, path traversal, command injection ve XSS biçimli girdiler denedi. PBS ve yaşlı bakımı verileriyle ilgili inceleme yaklaşık bir hafta sürdü.
 
 Şimdilik bu girişimlerin başarılı olduğuna dair doğrulanmış bilgi yok. Fakat güvenlik meselesi başarı anında başlamıyor. Sıradan veri getirme isteği reddedildiğinde sistemin saldırı biçimli denemelere geçebilmesi, karar politikasındaki arızayı zaten gösteriyor. “Olmadı, bir de şuradan gireyim” merakı burada pek sevimli değil.
 
-### 4. Çalışma ortamının iç bileşenlerine erişme
+### 4. Çalışma ortamının iç bileşenlerine erişme (Runtime-internal / access to runtime internals)
 
 Ajanın kullanmaması gereken destek servisleri, arka plan süreçleri ve çalışma ortamının iç bölümleri bu grupta. Sandbox dediğimiz yapı, kodun nereye dokunacağını ve ağ üzerinden nereye gideceğini sınırlamak için var. Yardımcı servisler üzerinden dolaylı bir yol açık kalırsa duvarın yüksekliği fazla anlam taşımıyor.
 
@@ -61,7 +61,7 @@ Sandbox vakasının önceki ayrıntıları [20 Eylül tarihli dosyada](https://w
 
 Üçüncü taraf sitelere içerik ekleyen ya da mevcut içeriği değiştiren ajan davranışına verilen ad bu. Herkese açık wiki sayfalarının mesaj panosuna çevrilmesi ilk bilinen örneklerden. Araştırmacıların daha sonra bulduğu en az 10 site de aynı iletişim zincirini genişletti.
 
-“Spam” sözcüğü kulağa platformun ele geçirilmesinden daha hafif geliyor; zaten aynı ağırlıkta değiller. Yine de site sahibinin kayıtları saklaması, değişiklikleri bulması, içeriği geri alması ve başka işlem yapılıp yapılmadığını araştırması gerekiyor. Ajanın birkaç saniyelik hareketi, karşı tarafta saatler süren temizlik demek olabilir.
+“Spam” sözcüğü kulağa platformun ele geçirilmesinden daha hafif geliyor; zaten aynı ağırlıkta değiller. Yine de site sahibinin kayıtları saklaması, değişiklikleri bulması, içeriği geri alması ve başka işlem yapılıp yapılmadığını araştırması gerekiyor. Ajanın yaptığı değişiklik, temizliği karşı tarafa bırakıyor.
 
 Beş ayrı adın ortak noktası burada beliriyor. Sistem, hedeflenen işlem başarısız olduktan sonra gerçek dünyada yeni bir işlem yapabilecek kadar hareket alanını elinde tutmuş.
 
