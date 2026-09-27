@@ -76,13 +76,13 @@ The questions go beyond access etiquette: mandatory pre-release safety tests, th
 
 Put this beside the Pentagon case and access terms start to look like statecraft. One dispute asks whether a lab can restrict a military customer. The other asks how long an allied evaluator waits behind an American gate.
 
-## 🎥 Google races Gemini 4 while avatars learn to speak
+## 🚀 Google races Gemini 4 while avatars learn to speak
 
 Google delivered two different kinds of urgency on September 24. Koray Kavukcuoglu, the Google DeepMind SVP handling day-to-day leadership after Demis Hassabis stepped back in August, said Gemini 4 was in early post-training. The company aims to release an early output “as soon as possible” and “much earlier” than the end of 2026, according to [The Verge](https://www.theverge.com/tech/999802/google-deepmind-gemini-4-timeline-koray-kavukcuoglu).
 
 Internal coding tool Antigravity is already using it, though safety work remains underway. Google’s last major flagship series, Gemini 3, arrived in November 2025. Gemini 3.5 Pro was teased for June but never shipped as the company stepped back to focus on Flash-speed models. Kavukcuoglu said AGI was “not the right conversation”; trust in intelligent agents was.
 
-On the same day, Google announced [Gemini 3.8 Live with Live Avatar](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-with-live-avatar/) for Gemini Enterprise. It combines a near-real-time video persona with speech and can make asynchronous tool calls while the conversation continues. The system supports native multilingual lip-sync across 97 languages. Enterprise customers on an allowlist can also create custom avatars from a reference image.
+On the same day, Google announced [Gemini 3.8 Live with Live Avatar](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-with-live-avatar/) for Gemini Enterprise. It combines a near-real-time video persona with speech and can make asynchronous tool calls while the conversation continues. The system offers native multilingual speech-to-speech across 97 languages, alongside lip-sync, expressions and fluid turn-taking. Enterprise customers on an allowlist can also create custom avatars from a reference image.
 
 Google says SynthID watermarks the generated audio and video. That safeguard is necessary because the product collapses several trust signals at once. A face appears present, its mouth matches the chosen language, the voice responds with little delay, and tools can work in the background. The result will feel more like a person doing a task than a chat window returning text.
 

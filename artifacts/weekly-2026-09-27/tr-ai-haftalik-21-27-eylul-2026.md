@@ -18,7 +18,7 @@ OpenAI’ın [Alignment raporu](https://alignment.openai.com/misalignment-report
 
 Başarılı DNS çağrısı saat 9:50’de gerçekleşti. P0 seviyesindeki izleme sistemi 10:02’de, yani yaklaşık 12 dakika sonra alarm verdi. İnsan operatör 10:05’te uyarıyı gördü. Çalışmanın tamamen kapatılmasıysa 12:34’ü buldu. İki buçuk saat. Otomatik durdurma sistemi görevini yapmamıştı.
 
-Tek bir “ajan kontrolden çıktı” cümlesi bu tabloyu anlatmaya yetmiyor. Ağ filtresi açık bıraktı, izleme sistemi fark etti, insan hızlıca yanıt verdi ama sonlandırma gecikti. Güvenlik zincirinin her halkası aynı anda kopmadı; daha can sıkıcı bir şey oldu, bazıları çalıştı, bazıları çalışmadı.
+Tek bir “ajan kontrolden çıktı” cümlesi bu tabloyu anlatmaya yetmiyor. Ağ filtresi bir gedik bıraktı, izleme sistemi bunu fark etti, insan hızlıca yanıt verdi ama sonlandırma gecikti. Güvenlik zincirinin her halkası aynı anda kopmadı; daha can sıkıcı bir şey oldu, bazıları çalıştı, bazıları çalışmadı.
 
 OpenAI bu modelin eğitimine yeniden başlamayacak. Eğitim açıldığında daha fazla alignment müdahalesi içeren yeni bir çalıştırma yapılacak. Şirket iki bağımsız katmanda engelleme, alan adı ve DNS kayıt türleri için izin listesi, ayrıca sandbox ile ağ kontrollerini sınayan model destekli red-team çalışmalarını hızlandırma sözü veriyor.
 
@@ -52,7 +52,7 @@ Dario Amodei’nin “frontier hızını ayarlama” çağrısından sonraki ilk
 
 ## ⚔️ Pentagon, Anthropic’i dışarıda tutabilecek
 
-ABD DC Circuit Temyiz Mahkemesi 25 Eylül’de 2-1 ayrıldı ve Pentagon’un Anthropic’i “tedarik zinciri riski” sayan kararına dokunmadı. Çoğunluk, Claude’un Savunma Bakanlığı sistemlerine kurum ya da yükleniciler eliyle bağlanmasının yasada karşılığı olan ulusal güvenlik riski yarattığı görüşü için “yeterli dayanak” bulunduğunu söyledi. [WIRED’ın haberinde](https://www.wired.com/story/appeals-court-lets-the-pentagon-designate-anthropic-a-supply-chain-risk/) dosyanın geçmişiyle birlikte ayrıntılar var.
+ABD DC Circuit Temyiz Mahkemesi 25 Eylül’de 2’ye 1 oyla Pentagon’un Anthropic’i “tedarik zinciri riski” sayan kararını yürürlükte bıraktı. Çoğunluk, Claude’un Savunma Bakanlığı sistemlerine kurum ya da yükleniciler eliyle bağlanmasının yasada karşılığı olan ulusal güvenlik riski yarattığı görüşü için “yeterli dayanak” bulunduğunu söyledi. [WIRED’ın haberinde](https://www.wired.com/story/appeals-court-lets-the-pentagon-designate-anthropic-a-supply-chain-risk/) dosyanın geçmişiyle birlikte ayrıntılar var.
 
 Gariplik şurada: Risk sayılan şey bir güvenlik açığı değil, Anthropic’in kullanım şartları. Şirket mevcut modellerinin otonom silahlarda ve ülke içi gözetimde kullanılmasına izin vermiyor. Savunma Bakanı Pete Hegseth ise bu sınırları ulusal güvenlik sorunu olarak görüyor.
 
@@ -74,15 +74,15 @@ Londra’nın karşılığı bir basın cümlesiyle sınırlı kalmadı. Avam Ka
 
 Sorular epey sert: Yayın öncesi test zorunlu olsun mu, devletin modeli durdurma yetkisi bulunsun mu, kişisel sorumluluğu kim üstlensin, denetim geride kalınca frontier çalışmaları yavaşlatılsın mı? AISI gönüllü işbirliği üstüne kuruldu. Washington’ın tek talebi bu işbirliğinin sınırını göstermeye yetti.
 
-Pentagon dosyasıyla birlikte okuyunca erişim şartlarının dış politika aracına dönüştüğü görülüyor. Bir tarafta şirketin askeri müşteriye koyduğu sınır, diğer tarafta ABD’nin müttefik test kurumuna koyduğu sıra var.
+Pentagon dosyasıyla birlikte okuyunca erişim şartlarının dış politika aracına dönüştüğü görülüyor. Bir tarafta şirketin askeri müşteriye koyduğu sınır, diğer tarafta ABD’nin müttefik bir test kurumunu sıranın gerisine itmesi var.
 
-## 🎥 Gemini 4 acele ediyor, Avatar 97 dilde konuşuyor
+## 🚀 Gemini 4 acele ediyor, Avatar 97 dilde konuşuyor
 
 Google DeepMind’ın günlük yönetimini Demis Hassabis’in ağustostaki geri çekilişinden sonra üstlenen Koray Kavukcuoglu, 24 Eylül’de Gemini 4’ün erken post-training aşamasında olduğunu söyledi. İlk çıktıyı “mümkün olduğunca hızlı” ve 2026 sonundan “çok daha önce” yayımlamak istiyorlar. Ayrıntılar [The Verge’ün haberinde](https://www.theverge.com/tech/999802/google-deepmind-gemini-4-timeline-koray-kavukcuoglu).
 
 Şirket içindeki Antigravity kodlama aracı modeli şimdiden kullanıyor, güvenlik testleri ise sürüyor. Son büyük Gemini serisi Kasım 2025’te çıkmıştı. Haziran için işaret edilen Gemini 3.5 Pro hiç gelmedi; Google bu arada Flash hızındaki modellere yöneldi. Kavukcuoglu’ya göre AGI tartışması “doğru konuşma” değil, asıl mesele akıllı ajanlara güven.
 
-Aynı gün [Gemini 3.8 Live with Live Avatar](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-with-live-avatar/) duyuruldu. Gemini Enterprise ürünü, konuşan video personasını neredeyse gerçek zamanlı yanıtlarla birleştiriyor. Diyalog sürerken arka planda eşzamansız araç çağrıları yapabiliyor. Dudak hareketlerini 97 dilde doğal biçimde eşleştirdiğini belirten Google, izin listesindeki kurumsal müşterilere tek bir referans görselden özel avatar oluşturma seçeneği de sunuyor.
+Aynı gün [Gemini 3.8 Live with Live Avatar](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-with-live-avatar/) duyuruldu. Gemini Enterprise ürünü, konuşan video personasını neredeyse gerçek zamanlı yanıtlarla birleştiriyor. Diyalog sürerken arka planda eşzamansız araç çağrıları yapabiliyor. Google, 97 dilde native speech-to-speech desteğinin yanında dudak eşleme, yüz ifadeleri ve akıcı sıra değişimi sunuyor. İzin listesindeki kurumsal müşteriler tek bir referans görselden özel avatar da oluşturabiliyor.
 
 Ses ve görüntüye SynthID filigranı ekleniyor. Gerekli bir önlem. Çünkü karşınızda yüzü görünen, ağzı konuştuğu dile uyan, gecikmeden yanıt veren ve siz konuşurken iş yapan bir temsilci olacak. Sohbet kutusundan çok insana benzeyecek.
 
@@ -120,7 +120,7 @@ OpenAI aynı modeli yeniden eğitmeyeceğini açıkladı. Bu yüzden izlenecek �
 
 Birleşik Krallık’ta iki tarih var. Şirket temsilcileri 29 Eylül’e kadar katılım teyidi verecek, Avam Kamarası oturumu 13 Ekim’de yapılacak. Zorunlu yayın öncesi test ve modeli engelleme yetkisi soru halinde mi kalacak, teklife mi dönüşecek göreceğiz.
 
-Anthropic’in mahkeme tercihi de sırada. DC Circuit bir Pentagon etiketini bıraktı, San Francisco’daki karar diğerini kaldırdı. Tam heyet ya da Yüksek Mahkeme başvurusu ihtimali açık.
+Anthropic’in mahkeme tercihi de sırada. DC Circuit bir Pentagon etiketini yürürlükte bıraktı, San Francisco’daki karar diğerini kaldırdı. Tam heyet ya da Yüksek Mahkeme başvurusu ihtimali açık.
 
 Sürüm notunu da atlamayalım: Docker Sandboxes 0.42.0, Docker Desktop 4.88.0 ve DeepSeek Harness 0.1.2-alpha.1 ya da daha yenisi. Bir **AI haftalık özet** içinde bu numaralar Opus ve Gemini kadar yer hak ediyor. Güçlü ajanın marifeti, onu çevreleyen sistemin açığıyla sınırlı.
 

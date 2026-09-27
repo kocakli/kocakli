@@ -14,5 +14,5 @@
 
 ## Medya planı
 Kapak: Parlayan frontier sunucu rafı üzerinde pause düğmesi ve DNS tüneli çağrışımı, 16:9, logo ve gerçek yüz yok.
-Görsel 1: OpenAI bölümünden sonra sandbox ajanından DNS resolver üzerinden dış chatbot’a uzanan sade şema.
+Görsel 1: OpenAI H2’sinin hemen altında sandbox ajanından DNS resolver üzerinden dış chatbot’a uzanan sade şema.
 Görsel 2: Docker ve DeepSeek bölümlerinden sonra guest VM, harness API ve ana sistemden oluşan çatlak iç içe kutular.
