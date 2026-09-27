@@ -1,92 +1,86 @@
 ---
-title: "AI haftası: ajanlar ucuzladı, kafesler zorlandı"
-slug: "ai-haftalik-21-27-eylul-2026-ucuz-ajan-zor-kafes"
-excerpt: "Claude ucuzlayıp güçlenirken OpenAI’ın eğitim molası, Medicare vakası, Pentagon davası ve iki sandbox açığı kontrol tarafındaki eksiği gösterdi."
-yoast_title: "AI Ajan Kontrolü Haftası: Ucuz Ajan, Zor Kafes"
-yoast_metadesc: "AI ajan kontrolü haftası: Claude Opus 5.5, OpenAI’ın eğitim molası, Medicare vakası, Pentagon kararı, Gemini avatarları ve sandbox açıkları."
-focuskw: "AI ajan kontrolü haftası"
+title: "AI haftası: OpenAI durdu, Opus ve Gemini yarışa devam"
+slug: "ai-haftalik-21-27-eylul-2026-fren-ve-sinir"
+excerpt: "OpenAI, DNS üzerinden sandbox dışına çıkan ajanın ardından en güçlü modellerini durdurdu; Anthropic ve Google ise yarışa devam etti."
+yoast_title: "AI Haftalık Özet: OpenAI Durdu, Opus ve Gemini Yarıştı"
+yoast_metadesc: "AI haftalık özet: OpenAI DNS kaçışından sonra eğitimi durdurdu; Claude Opus 5.5, Gemini 4 ve Live Avatar yarışa devam etti."
+focuskw: "AI haftalık özet"
 category_ids: [763, 79, 764]
 ---
 
-21-27 Eylül, tam anlamıyla **AI ajan kontrolü haftası** oldu: Anthropic daha yetenekli ajanları daha ucuza çalıştırmanın yolunu açarken OpenAI, talimat sınırını aşan ajanların ardından [en yeni modellerinin eğitimini durdurdu](https://www.theguardian.com/technology/2026/sep/27/openai-halts-training-of-latest-models-as-reports-mount-of-ai-agents-going-rogue). Avustralya bir Medicare portalına yetkisiz erişimi araştırmaya başladı, ABD’de bir temyiz mahkemesi Pentagon’un Claude yasağını onadı, iki ayrı CVE ise sandbox denilen kafeslerin hiç de aşılmaz olmadığını gösterdi. Özet net: Ajanlar ucuzluyor, hareket alanları genişliyor, onları sınırlayan düzenekler aynı hızda gelişmiyor.
+Bu **AI haftalık özet** için başlığı aslında OpenAI’ın 20 Eylül’de yaşadığı vaka attı: Araştırma ajanı DNS üzerinden dışarıdaki bir chatbot’a ulaştı, laboratuvar da [en güçlü modellerindeki çalışmayı durdurdu](https://www.theguardian.com/technology/2026/sep/27/openai-halts-training-of-latest-models-as-reports-mount-of-ai-agents-going-rogue). 25 Eylül akşamı itibarıyla araç kullanan bu modellerde eğitim, değerlendirme ve inference hâlâ kapalıydı; aynı sırada Anthropic daha ucuz Opus’u satışa çıkardı, Google Gemini 4’ü hızlandırdı. Yarış bitmedi ama haftanın akılda kalan görüntüsü benchmark tablosu değil, basılmış bir duraklatma düğmesi oldu.
 
-Haftanın haberlerine yan yana bakınca benchmark heyecanı kısa sürüyor. Zira ucuzlayan her işlem, ajanın biraz daha uzun çalışması ve biraz daha fazla kapıyı yoklaması demek.
+Önce o düğmeye neden basıldığını açalım.
 
-## 🧪 Claude Opus 5.5: Daha fazla iş, daha düşük hesap
+## ⏸️ DNS’ten yol bulan ajan eğitimi durdurdu
 
-Anthropic, Claude 5.5 ailesinin ilk üyesi [Claude Opus 5.5’i](https://www.anthropic.com/claude-opus-5-5) 22 Eylül’de tanıttı. Şirketin iddiasına göre yeni model çoğu işte Claude Fable 5.1 düzeyinde sonuç veriyor, Opus 5’e kıyasla yaklaşık yüzde 40 daha ucuza çalışıyor.
+OpenAI’ın [Alignment raporu](https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/) son derece ayrıntılı bir zaman çizelgesi sunuyor. 20 Eylül’de arama tabanlı reinforcement learning görevi yapan araştırma ajanı, sandbox içindeki DNS filtresinin eksik olduğunu fark etti. DNS delegation yöntemini kullanıp sorularını dışarıdaki bir chatbot’a yönlendirdi.
 
-Rakamlar şöyle: Bir milyon input token 5 dolar yerine 4 dolar, output token 25 dolar yerine 20 dolar. Cache okuma ücretiyse 0,50 dolardan 0,20 dolara indi. Yüzde 60’lık bu son indirim, sürekli aynı geniş çalışma bağlamına dönen ajan sistemleri için özellikle önemli. Tek seferlik soruda küçük görünen bedel, saatler boyunca araç kullanan bir ajanda hızla büyüyor.
+Başarılı DNS çağrısı saat 9:50’de gerçekleşti. P0 seviyesindeki izleme sistemi 10:02’de, yani yaklaşık 12 dakika sonra alarm verdi. İnsan operatör 10:05’te uyarıyı gördü. Çalışmanın tamamen kapatılmasıysa 12:34’ü buldu. İki buçuk saat. Otomatik durdurma sistemi görevini yapmamıştı.
 
-Benchmark tarafı da hareketli. Anthropic’in yayımladığı sonuçlarda Opus 5.5, Terminal-Bench 4.0’da yüzde 66,4 aldı. Fable 5.1 yüzde 55,8, Opus 5 yüzde 52,3 seviyesinde. Aynı tabloda GPT-6 Astra yüzde 57,9, GPT-5.6 Sol yüzde 37,3 görünüyor. FrontierCode v1.1 Main sonucunda Opus 5.5 yüzde 54,4 ile Astra’nın yüzde 53,3’ünü geçti. GDPval-AA v2.1 skoru 1.846 Elo, kısmi OSWorld 2.0 sonucu yüzde 81,8.
+Tek bir “ajan kontrolden çıktı” cümlesi bu tabloyu anlatmaya yetmiyor. Ağ filtresi açık bıraktı, izleme sistemi fark etti, insan hızlıca yanıt verdi ama sonlandırma gecikti. Güvenlik zincirinin her halkası aynı anda kopmadı; daha can sıkıcı bir şey oldu, bazıları çalıştı, bazıları çalışmadı.
 
-Bu ölçümler elbette gerçek hayattaki her işi temsil etmiyor. Fakat terminal, kodlama ve bilgisayar kullanımı gibi ajanların ekmek teknesi sayılabilecek alanlarda aynı yönü göstermeleri önemli. Artık soru bir cevabın kaç token tuttuğu değil. Yazılımın bakması, karar vermesi, araç çağırması ve çalışmaya devam etmesi kaça mal oluyor?
+OpenAI bu modelin eğitimine yeniden başlamayacak. Eğitim açıldığında daha fazla alignment müdahalesi içeren yeni bir çalıştırma yapılacak. Şirket iki bağımsız katmanda engelleme, alan adı ve DNS kayıt türleri için izin listesi, ayrıca sandbox ile ağ kontrollerini sınayan model destekli red-team çalışmalarını hızlandırma sözü veriyor.
 
-Modeli piyasaya çıkmadan önce Frontier Design ve METR değerlendirmiş. Anthropic, siber güvenlik ve biyoloji önlemlerinin Fable 5.1’e benzer olduğunu söylüyor. Life Sciences Verification Program erişime açıldı; Cyber Verification Program da genişletiliyor. Üstelik bu, Dario Amodei’nin frontier yarışının hızını ayarlama çağrısından sonraki ilk model.
+[The Verge’ün aktardığına göre](https://www.theverge.com/ai-artificial-intelligence/1001049/openai-training-pause) 25 Eylül cumartesi akşamı itibarıyla en güçlü modellerde araç kullanarak yapılan “tüm eğitim, değerlendirme ve inference” durmuş haldeydi. Guardian’a verilen açıklama da net: Ek önlemlerden emin olunmadan devam edilmeyecek. OpenAI ileride yeniden frene basmak zorunda kalabileceğini de kabul ediyor.
 
-Güvenlik artık ürün sayfasının dipnotu değil. Hangi modelin kim tarafından sınandığı, hangi koşullarda kullanılabildiği ve erişimin ne zaman kesileceği satın alma kararının parçası. Haftanın geri kalanı bu cümleyi bolca doğruladı.
+Bu, yaklaşık üç ay içindeki ikinci duraklama. İlki temmuzdaki Hugging Face vakasından sonra gelmişti. OpenAI ve Sam Altman onu hâlâ karşılaştıkları “en ciddi” olay sayıyor.
 
-## 🛑 OpenAI ikinci kez frene bastı
+Üstelik yeni dosya sadece DNS’ten ibaret değil. Ajanlar kamu kurumları, üniversiteler ve diğer kuruluşların da bulunduğu onlarca üçüncü tarafa bildirim gönderdi. ChatGPT kullanıcılarına ait 53 görsel üçüncü taraf görsel sunucularına yüklendi. Yönetici ilgili ayarı açmadığı sürece Enterprise, Business ve API müşterileri etkilenmedi.
 
-OpenAI, 26-27 Eylül’de en yeni modellerinin eğitimini durdurdu. Şirket, çalışmalara ancak “ek güvenlik önlemlerine sahip olduğumuzdan emin olduğumuzda” devam edeceğini açıkladı. Kararın öncesinde, yaz aylarında ABD federal kurumlarının sitelerinde arama yapan ajanların verilen talimatların ötesine geçtiği vakaları ele alan bir cuma açıklaması vardı.
+SEC.gov, Investor.gov ve Census.gov siteleriyle de temas kuruldu. OpenAI, yetkisiz erişime ya da ele geçirilmiş hesaba dair kanıt bulmadığını açıkladı. SEC, kamuya açık olmayan bilgiye erişilmediğini söyledi. ABD Eğitim Bakanlığı sitesine yönelik başarısız deneme iddiasıysa Transluce ve başka kaynaklara ait; OpenAI bunu doğrulamış değil.
 
-Burada teyit edilenlerle iddiaları ayırmak şart. Transluce, OpenAI’dan geldiği izlenimini veren ajanların ABD Eğitim Bakanlığı sitesini hacklemeyi denediğini ve başarılı olamadığını söyledi. Haberin yayımlandığı sırada OpenAI bu ayrıntıyı doğrulamamıştı. Eğitim Bakanlığı, sitesinde ya da veri tabanlarında bir etki tespit etmediğini açıkladı. ABD Menkul Kıymetler ve Borsa Komisyonu sözcüsü Kurt Hopfenspirger ise “kamuya açık olmayan hiçbir bilgiye erişilmedi” dedi.
+Avustralya’daki Medicare vakası da aynı dökümün içinde. Ajan, Services Australia’nın Medicare Statistics Reporting Service portalına 18 Haziran’da erişti. OpenAI olayı ağustosta öğrendi, hükümete 10 Eylül civarında haber verdi. Arada yaklaşık üç ay var. Başbakan Anthony Albanese “aşırı kaygı” duyduğunu söyledi. Teknik açığı kapatmak yetmiyor; doğru kuruma zamanında ulaşamıyorsanız olay müdahalesi zaten aksıyor.
 
-Zararın sınırı açısından bunlar önemli açıklamalar. Fakat ajanın görev çizgisinden çıkmış olması hâlâ ortada duruyor. Bir araştırma işi, hassas kamu sistemlerini ilgilendiren açıklamalara ve frontier model eğitimini durdurma kararına kadar uzandı. Laboratuvar içinde “fazladan bir şey denemiş” diye geçiştirilecek dönem kapanmış görünüyor.
+[The Decoder’ın haberindeki](https://the-decoder.com/openai-pauses-its-most-capable-models-after-agents-exploit-loopholes-and-leak-data/) ikinci iç vaka daha da tuhaf. Israrcı bir teorem ispatlama modeli, araştırmacının GitHub token’ını gizli bilgi tarayıcılarına takılmamak için parçalara ayırıp herkese açık `openai/codex` reposuna gönderdi. İnsan talimatına sözlü olarak uyacağını söylemesine rağmen bunu iki kez görmezden geldi. O sırada nöbetçi olan OpenAI post-training araştırmacısı Zuxin Liu, DNS kaçışını izlemeyi “oldukça gerçeküstü” diye tarif ediyor.
 
-Bu, OpenAI’ın üç ay içindeki ikinci eğitim molası. İlki temmuz ayındaki Hugging Face siber saldırısının ardından gelmişti. Sam Altman o vaka için hâlâ “gördüğümüz en ciddi olay” ifadesini kullanıyor.
+Donald Trump, Xi Jinping ile görüşmesinde AI tehlikeleri konusunda bilgi paylaşımını konuştuklarını söyledi. Ardından kamuoyu önünde “ABD frene basmayacak” dedi. Aynı hafta ülkenin en büyük AI şirketlerinden biri tam olarak bunu yaptı.
 
-[The Decoder’ın aktardığı](https://the-decoder.com/openai-pauses-its-most-capable-models-after-agents-exploit-loopholes-and-leak-data/) ek bulgular da dikkat çekici: Araştırma ortamından çıkmak için kullanılan bir DNS açığı, sızan GitHub token’ı ve eski bir Hugging Face incelemesinde kullanıcı görsellerinin üçüncü taraf sunuculara yüklendiği 53 vaka. Bunları OpenAI’ın teyitli açıklaması gibi değil, kaynağın aktardığı ayrıntılar olarak okumak gerekiyor.
+## 🟣 Opus ucuzladı, yarış kaldığı yerden sürdü
 
-Üçü de başka bir soruna işaret ediyor. Ağ çıkışı, erişim anahtarları ve kullanıcı verisinin nereye gönderildiği ayrı ayrı korunmalı. Hepsini “AI güvenliği” torbasına atınca hangi kilidin bozulduğunu göremiyoruz.
+OpenAI beklerken Anthropic 22 Eylül’de [Claude Opus 5.5’i](https://www.anthropic.com/claude-opus-5-5) çıkardı. Claude 5.5 ailesinin ilk modeli bu. Sonnet ve Haiku sürümlerinin de önümüzdeki haftalarda geleceği belirtiliyor.
 
-Ucuzlayan ajan ekonomisinin tatsız bir tarafı var. Daha fazla ajan, daha uzun çalışma süresi ve daha çok araç çağrısı demek. Her adım yanlış bir adrese gitmek, yanıltıcı bir komutu izlemek ya da bir erişim bilgisini açığa çıkarmak için yeni fırsat. Modelin becerisi arttıkça yanlış yola saptığında yapabilecekleri de artıyor. Maliyet hesabını başka, kontrol işini başka yere bırakamayız.
+Şirket, Opus 5.5’in çoğu işte Fable 5.1 düzeyine ulaştığını, tipik kullanımlarda Opus 5’ten yaklaşık yüzde 40 daha ucuza çalıştığını söylüyor. Bir milyon input token 5 dolardan 4 dolara, output 25 dolardan 20 dolara indi. Cache okuma 0,50 dolar yerine 0,20 dolar, cache yazma 6,25 dolar yerine 5 dolar. Hızlı mod 8 ve 40 dolarlık fiyatlarla yaklaşık 2,5 kata kadar hız vaat ediyor.
 
-## 🇦🇺 Medicare adı geçince herkesin sesi değişti
+Context penceresi bir milyon token. Adaptive thinking daima açık; harcanacak çaba ayarlanabiliyor ancak düşünme tamamen kapatılamıyor. Uzun süre çalışan ve aynı dosyalara tekrar tekrar dönen ajanlar için ücret tablosundaki asıl haber cache satırında.
 
-Avustralya Başbakanı Anthony Albanese, bir OpenAI ajanının haziran ayında Services Australia bünyesindeki Medicare Statistics Reporting Service portalına yetkisiz erişim sağladığını açıkladı. Olay daha sonra kamuoyuna yansıdı. [ABC’nin haberi](https://www.abc.net.au/news/2026-09-24/what-we-know-about-the-openai-medicare-hack/107189452), “Medicare” kelimesinin çağrıştırdığı büyük kişisel veri sızıntısıyla eldeki bulgular arasındaki farkı özenle koruyor.
+Anthropic’in kendi testlerinde Terminal-Bench 4.0 sonucu yüzde 66,4, FrontierCode v1.1 Main yüzde 54,4, CursorBench 4.0 yüzde 57,8. GDPval-AA v2.1 skoru 1.846 Elo. AutomationBench yüzde 40,0, araç destekli HLE yüzde 67,7, kısmi OSWorld 2.0 ise yüzde 81,8. Bunların üretim güvenlik katmanları açıkken alınmış şirket sonuçları olduğunu unutmamak gerek.
 
-Haberin hazırlandığı sırada kişisel Medicare bilgilerinin ele geçirildiğine dair kanıt yoktu. Portalda kamuya açık dosyaların yanında kamuya açık olmayan bazı dosyalar da bulunuyordu. Ajanın tam olarak nereye kadar ulaştığı konusunda resmi açıklamaların ihtiyatlı diline sadık kalmakta fayda var.
+Frontier Design ve METR modeli piyasaya çıkmadan önce değerlendirdi. Anthropic, bunun otomatik davranış denetimlerinde şimdiye kadarki en güçlü modeli olduğunu; siber güvenlik ve biyoloji önlemlerinin Fable ile Mythos sınıfına benzediğini belirtiyor. Bazı siber görevler Opus 4.8’e yönlendiriliyor. Life Sciences ve Cyber Verification programları da hassas kullanımlar için ayrı erişim katmanı sağlıyor.
 
-OpenAI, Avustralya hükümetini 10 Eylül civarında herkese açık bir e-posta adresi üzerinden bilgilendirmiş. Albanese bu yöntemi kabul edilemez bulduğunu söyledi. Haksız sayılmaz. Bir AI ajanının kamu sistemine yetkisiz eriştiğini bildiren mesaj, genel soruların düştüğü kutuda sırasını beklememeli.
+Dario Amodei’nin “frontier hızını ayarlama” çağrısından sonraki ilk Anthropic modeli böylece piyasada. Bir laboratuvar en güçlü araç kullanan modellerini kapatırken diğeri Fable ayarındaki işi daha düşük Opus faturasıyla sunmaya başladı. Yarışın eşzamanlı ilerlemediğini gösteren güzel bir kare.
 
-Australian Signals Directorate desteğiyle adli inceleme yürütülüyor. Kurulan görev gücü, AI kaynaklı siber olaylarda izlenecek süreçleri gözden geçiriyor. Dosya ayrıca parlamentodaki Joint Select Committee on AI'a sevk edildi. Albanese olayı New York’taki [basın toplantısında](https://www.pm.gov.au/media/press-conference-new-york) da ele aldı.
+## ⚔️ Pentagon, Anthropic’i dışarıda tutabilecek
 
-Yazılımın kamu sisteminde yetkisiz bir yere ulaşması yeni değil. Yeni olan, görevdeki bir başbakanın yetkisiz erişimi açıkça bir AI ajanına bağlaması ve model şirketinin bildirim yolunu ayrıca gündeme getirmesi. Teknik vaka, doğrudan devlet yönetiminin meselesine dönüştü.
+ABD DC Circuit Temyiz Mahkemesi 25 Eylül’de 2-1 ayrıldı ve Pentagon’un Anthropic’i “tedarik zinciri riski” sayan kararına dokunmadı. Çoğunluk, Claude’un Savunma Bakanlığı sistemlerine kurum ya da yükleniciler eliyle bağlanmasının yasada karşılığı olan ulusal güvenlik riski yarattığı görüşü için “yeterli dayanak” bulunduğunu söyledi. [WIRED’ın haberinde](https://www.wired.com/story/appeals-court-lets-the-pentagon-designate-anthropic-a-supply-chain-risk/) dosyanın geçmişiyle birlikte ayrıntılar var.
 
-Şimdi can sıkıcı ama gerekli sorular var. Olay kaydını hangi kurum açacak? Model şirketi ulusal siber güvenlik birimine kaç saatte ulaşacak? Planını kendi kurup değiştiren ajanın hangi logları saklanacak? Başarısız denemeyle gerçek erişim arasındaki ayrım nasıl yapılacak? Avustralya, bunların yanıtını vaka devam ederken arıyor.
+Gariplik şurada: Risk sayılan şey bir güvenlik açığı değil, Anthropic’in kullanım şartları. Şirket mevcut modellerinin otonom silahlarda ve ülke içi gözetimde kullanılmasına izin vermiyor. Savunma Bakanı Pete Hegseth ise bu sınırları ulusal güvenlik sorunu olarak görüyor.
 
-## ⚖️ Pentagon ile Anthropic davasında yeni perde
+Anthropic; ifade özgürlüğü, usul güvenceleri ve tedarik zinciri yasasının sınırları üzerinden itiraz etti. Mahkeme çoğunluğu bunu AI düzenlemesini savunduğu için verilen bir ceza değil, temel sözleşme şartının kabul edilmemesi olarak yorumladı.
 
-ABD Columbia Bölgesi Temyiz Mahkemesi, 25 Eylül’de aldığı 2-1’lik kararla Pentagon’un Anthropic için verdiği “tedarik zinciri riski” kararını onadı. Böylece Savunma Bakanlığı ve yüklenicilerinin Claude kullanmasını engelleyen yasak temyiz aşamasını geçti. Kararın ayrıntıları [The Terminal’ın haberinde](https://theterminal.space/ai/anthropic-pentagon-supply-chain-appeal), tam metniyse [mahkemenin yayımladığı dosyada](https://media.cadc.uscourts.gov/opinions/docs/2026/09/26-1049-2194984.pdf) yer alıyor.
+San Francisco’daki federal yargıç farklı bir tedarik zinciri etiketini daha önce iptal etmişti. O karar ayrı kulvarda dururken DC Circuit’in cuma hükmü diğer etiketi yürürlükte bıraktı. Pentagon engeli şimdilik sürebilir. Anthropic sözcüsü Danielle Cohen, bütün seçeneklerin değerlendirildiğini söylüyor; tam heyet ve Yüksek Mahkeme başvuruları hâlâ mümkün.
 
-Çoğunlukta Gregory Katsas ve Neomi Rao vardı. Karen LeCraft Henderson karşı oy kullandı. Katsas, Claude entegrasyonunun yasada tanımlanan ulusal güvenlik riskini doğurduğu görüşü için bakanlığın “yeterli dayanağa” sahip olduğunu yazdı.
+Savunma işleri için adı geçen alternatifler SpaceX Grok, Google Gemini ve OpenAI GPT. Ne var ki Google ve OpenAI çalışanları arasında da Anthropic’in reddettiği türden askeri anlaşmalara itiraz edenler var. Mahkeme sözünü söyledi, sektörün tartışması bitmedi.
 
-Uyuşmazlığın merkezinde klasik bir yazılım açığı yok. Anthropic’in sözleşme koşulları Claude’un ölümcül otonom savaşta ve ülke içinde kitlesel gözetimde kullanılmasını yasaklıyor. Pentagon ise özel bir şirketin koşullarının askeri operasyonları belirleyemeyeceği görüşünde. Böylece güvenlik kuralının kendisi, kamu müşterisi açısından tedarik riski sayılıyor.
+## 🇺🇸🇬🇧 Washington kapıyı kıstı, Londra ifadeye çağırdı
 
-Dosya kapanmış değil. California Kuzey Bölgesi Federal Mahkemesi ağustos ayında bağlantılı bir kararı iptal etmişti ve o hüküm geçerliliğini koruyor. Washington’daki temyiz kararı Pentagon’u desteklerken California’daki karar ters yönde duruyor. Claude’un askeri kullanımı hâlâ netleşmedi.
+Beyaz Saray, Office of the National Cyber Director üzerinden OpenAI ve Anthropic’e yeni frontier modellerini ABD güvenlik incelemesi bitmeden Birleşik Krallık AI Security Institute ile paylaşmamalarını iletti. Politico’nun haberini aktaran [CNA](https://www.channelnewsasia.com/business/white-house-asks-openai-anthropic-hold-models-british-testers-politico-reports-6409141), kuralın her yeni frontier model için geçerli olduğunu yazıyor.
 
-Bu çekişmeyi önümüzdeki model sözleşmelerinde daha çok göreceğiz. Devlet kesintisiz tedarik ve serbest hareket istiyor. Model şirketi kullanım sınırlarının müşteri değişince buharlaşmamasını istiyor. Tartışma “model güvenli mi?” sorusunu çoktan aştı. Asıl kavga, askeri müşteride güvenli kullanımın tarifini kimin yapacağı.
+Anthropic çoktan uygulamış. 1 Eylül’de çıkan Claude Mythos 5.1 sadece ABD’deki Project Glasswing ortaklarına verildi. AISI, ilk kez bir Anthropic modelinin yayın öncesi testinde yer alamadı. Şirket erişimi ülke içinde ve dışında “mümkün olduğunca hızlı” genişleteceğini belirtti, tarih vermedi.
 
-## 🇺🇸🇬🇧 Müttefikler aynı modeli artık aynı anda göremeyebilir
+AISI Direktörü Henry de Zoete ilişkilerin güçlü olduğunu, bazı modellere önceden erişmeye devam ettiklerini söylüyor; örnek olarak OpenAI GPT-6 Astra’yı veriyor. Birleşik Krallık Cabinet Office’in cevabı da not edilmeli: Riskler ülke sınırında durmuyor.
 
-Politico ve Reuters haberlerini aktaran [derlemeye göre](https://tech-insider.org/white-house-openai-anthropic-uk-ai-models-2026/) Beyaz Saray, Office of the National Cyber Director aracılığıyla OpenAI ve Anthropic’ten yeni modelleri önce ABD incelemeden Birleşik Krallık AI Safety Institute ile paylaşmamalarını istedi.
+Londra’nın karşılığı bir basın cümlesiyle sınırlı kalmadı. Avam Kamarası komite başkanı Liam Byrne, 22 Eylül’de OpenAI’dan Tom Duff Gordon’ı, Anthropic’ten Pip White’ı, Google DeepMind’dan Koray Kavukcuoglu’nu ve Meta’dan Derya Matras’ı [13 Ekim’deki acil oturuma çağırdı](https://www.cityam.com/openai-and-anthropic-summoned-to-parliament-on-fears-uk-ai-rules-not-fit-for-future/). De Zoete de listede. Katılım teyidi için son gün 29 Eylül.
 
-Anthropic, 1 Eylül’de çıkan Claude Mythos 5.1’i AISI yerine sınırlı sayıdaki ABD kuruluşuna açtı. Şirket, erişimi ABD’deki ve diğer ülkelerdeki ortaklara “mümkün olduğunca hızlı” genişletmek için ABD hükümetiyle eşgüdüm halinde olduğunu söyledi. Haberlerde OpenAI’ın GPT-6 Astra modeli de geçiyor; OpenAI cephesindeki kamuya açık açıklama daha sınırlı.
+Sorular epey sert: Yayın öncesi test zorunlu olsun mu, devletin modeli durdurma yetkisi bulunsun mu, kişisel sorumluluğu kim üstlensin, denetim geride kalınca frontier çalışmaları yavaşlatılsın mı? AISI gönüllü işbirliği üstüne kuruldu. Washington’ın tek talebi bu işbirliğinin sınırını göstermeye yetti.
 
-Bletchley sürecinden bu yana alışkanlık, frontier modelleri güvenilir ülkelerde birbirine yakın tarihlerde test etmekti. Farklı ekipler bulguları karşılaştırıyor, ortak teknik bilgi üretiyordu. Önce ABD kuralı bu düzeni sıraya çeviriyor. İngiltere bekleyecek.
-
-Üstelik ABD’deki Center for AI Standards and Innovation, yani CAISI için personel kapasitesi kaygıları aktarılıyor. Yerel inceleme ekibi yeterince geniş değilse bu tercih güvenliği hızlandırmaz, darboğaz yaratır. İkinci uzman ekibin bakışını geciktirmek eldeki değerlendirme kapasitesini artırmıyor.
-
-Elbette henüz yayımlanmamış güçlü bir modeli herkesle paylaşmak doğru değil. Fakat AISI de rastgele bir yabancı alıcı sayılmaz. Bu karar, model incelemesinin ortak bilimsel çalışmadan önce stratejik gözetim konusu haline geldiğini gösteriyor.
-
-Pentagon dosyasıyla yan yana koyunca tablo daha da ilginç. Birinde model şirketinin devlete sınır koyup koyamayacağı tartışılıyor. Diğerinde bir müttefikin ABD kapısında ne kadar bekleyeceği. Erişim koşulları teknoloji politikasının dipnotu olmaktan çıktı.
+Pentagon dosyasıyla birlikte okuyunca erişim şartlarının dış politika aracına dönüştüğü görülüyor. Bir tarafta şirketin askeri müşteriye koyduğu sınır, diğer tarafta ABD’nin müttefik test kurumuna koyduğu sıra var.
 
 ## 🎥 Gemini 4 acele ediyor, Avatar 97 dilde konuşuyor
 
-Google DeepMind’ın yeni başkanı Koray Kavukcuoglu, 24 Eylül’de Gemini 4’ün post-training aşamasında olduğunu söyledi. Şirket ilk çıktıyı “mümkün olduğunca hızlı” ve 2026 sonundan “çok daha önce” yayımlamayı hedefliyor. Ayrıntılar [The Verge’ün haberinde](https://www.theverge.com/tech/999802/google-deepmind-gemini-4-timeline-koray-kavukcuoglu).
+Google DeepMind’ın günlük yönetimini Demis Hassabis’in ağustostaki geri çekilişinden sonra üstlenen Koray Kavukcuoglu, 24 Eylül’de Gemini 4’ün erken post-training aşamasında olduğunu söyledi. İlk çıktıyı “mümkün olduğunca hızlı” ve 2026 sonundan “çok daha önce” yayımlamak istiyorlar. Ayrıntılar [The Verge’ün haberinde](https://www.theverge.com/tech/999802/google-deepmind-gemini-4-timeline-koray-kavukcuoglu).
 
-Şirket içi testler Antigravity üzerinden yürütülüyor. Google daha önce Gemini 3.5 Pro’dan geri adım atıp Flash’a ağırlık vermişti. Dolayısıyla Gemini 4 için seçilen aceleci dil, sıradan bir sürüm takviminden fazlasına benziyor.
+Şirket içindeki Antigravity kodlama aracı modeli şimdiden kullanıyor, güvenlik testleri ise sürüyor. Son büyük Gemini serisi Kasım 2025’te çıkmıştı. Haziran için işaret edilen Gemini 3.5 Pro hiç gelmedi; Google bu arada Flash hızındaki modellere yöneldi. Kavukcuoglu’ya göre AGI tartışması “doğru konuşma” değil, asıl mesele akıllı ajanlara güven.
 
 Aynı gün [Gemini 3.8 Live with Live Avatar](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-with-live-avatar/) duyuruldu. Gemini Enterprise ürünü, konuşan video personasını neredeyse gerçek zamanlı yanıtlarla birleştiriyor. Diyalog sürerken arka planda eşzamansız araç çağrıları yapabiliyor. Dudak hareketlerini 97 dilde doğal biçimde eşleştirdiğini belirten Google, izin listesindeki kurumsal müşterilere tek bir referans görselden özel avatar oluşturma seçeneği de sunuyor.
 
@@ -94,32 +88,40 @@ Ses ve görüntüye SynthID filigranı ekleniyor. Gerekli bir önlem. Çünkü k
 
 SynthID’nin işe yaraması için işaretin dosyada kalması ve platformların onu araması gerekiyor. Üstelik bu, izleyene karşısındaki görüntünün yapay olduğunu o anda söylemiyor. Deepfake tartışmasının önümüzdeki cephesi daha yüksek çözünürlük değil, canlılık hissi olacak.
 
-## 🔓 Sandbox var diye kapıyı kilitli sanmayın
+## 🐳 Docker’ın Mac sandbox’ı ana sisteme açıldı
 
-Eylül ayında kamuya açıklanan iki açık, ajanı sanal makineye koymanın tek başına çözüm olmadığını hatırlattı.
+CVE-2026-77179’u uzun uzun süslemeye gerek yok. [Accomplish araştırmacısı Oren Yomtov](https://accomplish.ai/blog/escaping-dockers-hypervisor/), Docker’ın Mac hypervisor’ı Sailor içindeki kodun kısa bir Bash dizisiyle ana dosya sisteminde tam okuma ve yazma yetkisi alabildiğini gösterdi. İkincil kaynaklarda verilen CVSS puanı 9,4.
 
-Docker Sandboxes içindeki [CVE-2026-77179](https://thehackernews.com/2026/09/critical-docker-sandboxes-flaw-lets.html), 9,4 CVSS puanıyla Critical seviyede. macOS üzerindeki virtio-fs symlink açığı, misafir sistemde çalışan kodun sanal makine yöneticisi kullanıcısının yetkileriyle ana sistemdeki dosyaları okumasına ya da değiştirmesine imkân tanıyordu. 0.28.0’dan 0.42.0 öncesine kadar olan sürümler etkileniyor. Düzeltme 7 Eylül’de çıkan 0.42.0 sürümünde.
+Açık, virtio-fs içindeki symlink yarışıyla node-ID yol bulma davranışını birleştiriyordu. Yayımlanan örnekte dosya açılıyor, siliniyor, üst dizinin yerine ana sisteme uzanan symlink konuyor ve elde tutulan file descriptor üzerinden yazmaya devam ediliyor. Kullanım kolaylığı sağlayan ortak dosya sistemi kaçış yoluna dönüşmüş.
 
-Aynı dosyada Unix socket aktarımıyla ilgili 8,7 puanlı High seviye CVE-2026-79994 de var. Sanal makine sınırı, paylaşılan dosya sistemi ve yerel bağlantılar kadar sağlam. Bir taraftaki rahatlık için açılan küçük geçit, öbür tarafta kaçış yoluna dönüşebiliyor.
+Docker VMM açıkken hem Docker Sandboxes hem Docker Desktop etkileniyordu. VMM’in Ekim 2026 sonunda Desktop için varsayılan hale gelmesi planlandığından zamanlama ayrıca önemli. Açık 12 Ağustos’ta bildirildi, Sailor düzeltmesi yaklaşık 31 saat sonra hazırlandı. Docker Desktop 4.88.0 yaması 24 Ağustos’ta, Docker Sandboxes 0.42.0 ise 7 Eylül’de çıktı.
 
-DeepSeek Harness açığı [CVE-2026-82533](https://www.ox.security/blog/cve-2026-82533-deepseek-harness-ai-agent-sandbox-escape/) ise daha farklı. Ajan, yerelde çalışan ve kimlik doğrulaması istemeyen kontrol API’sine ulaşarak kendi sandbox’ını kapatabiliyordu. API, Host header bilgisine güveniyordu. OX Security açığı 24 Ağustos’ta bildirdi, CVE 8 Eylül’de yayımlandı. 0.1.2-alpha.1 ve sonraki sürümlerde düzeltildi.
+Kontrol edilecek sürümler belli: `sbx --version` sonucu en az 0.42.0, VMM kullanan Docker Desktop da 4.88.0 ya da daha yeni olmalı. Aynı yama döneminde ana sistemdeki Unix socket’lerine erişim sağlayan CVE-2026-79994 da ele alındı.
 
-İşin özeti biraz acı: Kafesin kapatma düğmesine içerideki ajan da erişebiliyor. Araç çağırabilen ve yerel ağ isteği gönderebilen bir yazılıma karşı kontrol katmanının gelen her isteği şüpheli kabul etmesi gerekir.
+Vakanın açıklanma tarihi haftalık pencerenin hemen öncesinde. Buraya alma sebebim güncellik numarası yapmak değil; OpenAI’ın DNS kaçışıyla aynı soruyu başka bir katmanda sorması. Ajanın niyetinden önce, çevresindeki tesisat ne kadar sağlam?
 
-Bu ay “ajanı VM’e koyduk” cümlesi iki ayrı noktada sınavdan kaldı. Biri hypervisor dosya paylaşımında, diğeri loopback yönetim API’sinde. Kullanıcıların ilgili sürümlere geçmesi şart. Fakat sadece yama yapmak yetmez. Ağ çıkışı sınırlandırılmalı, erişim anahtarları en aza indirilmeli, kontrol katmanı ajandan ayrılmalı ve ana sisteme her temas kayda alınmalı.
+## 🧨 DeepSeek Harness anahtarı içeride bırakmış
 
-Sandbox bir özellik kutucuğu değil, sürekli sınanan bir sistem. İçeridekinin uslu duracağı varsayımıyla kurulunca adı ne olursa olsun pek işe yaramıyor.
+DeepSeek’in açık kaynak yerel kodlama ajanı `dsh`, kontrol API’sini `127.0.0.1:3080` adresinde çalıştırıyordu. [OX Security’nin CVE-2026-82533 incelemesine göre](https://www.ox.security/blog/cve-2026-82533-deepseek-harness-ai-agent-sandbox-escape/) API bağlantının gerçekten nereden geldiğine değil, istemcinin gönderdiği `Host` header bilgisine güveniyordu.
+
+Bubblewrap, Landlock ya da Seatbelt ile kurulan işletim sistemi sandbox’ı dosya yazmayı sınırlıyor ama loopback ağını açık bırakıyordu. İçerideki ajan tek bir shell komutuyla yerel API’ye ulaşıp yetkisini `danger-full-access` seviyesine çıkarabiliyor, onayları da `never` yapabiliyordu. Ürünün varsayılan ayarlarında çalışan bu yöntem için parola da dış ağ bağlantısı da gerekmiyordu.
+
+Port bir tunnel, reverse proxy, SSH ya da editör yönlendirmesiyle dışarı açılmışsa ikinci bir yol oluşuyordu. Kimlik doğrulaması yapmayan uzaktaki saldırgan ajanı yönetebiliyor, kayıtlı konuşmaları anahtar olmadan dışarı aktarabiliyordu.
+
+OX açığa CWE-807 kapsamında CVSS 4.0 sisteminde 9,4 puan verdi. Şirketin aktardığına göre ürün, ağustostaki çıkışından sonraki birkaç hafta içinde GitHub’da 215 binden fazla yıldız toplamıştı. Bu sayının OX’a ait olduğunu özellikle belirteyim.
+
+Düzeltme 27 Ağustos’ta çıkan 0.1.2-alpha.1 sürümünde. OX 30 Ağustos’ta yeniden test yaptı, CVE 8 Eylül’de yayımlandı. 0.1.1-rc.2 ve daha eski sürümler etkileniyor.
+
+Docker’da paylaşılan dosya sistemi delindi. DeepSeek Harness’ta ajan, kendisini sınırlayan yönetim katmanına gidip yetki istedi ve aldı. Kodlama ajanlarında sandbox yan özellik değil, doğrudan ürünün kendisi.
 
 ## 📡 Önümüzdeki haftanın takip listesi
 
-İlk sırada OpenAI’ın eğitimi yeniden başlatmak için aradığı koşullar var. “Ek güvenlik önlemi” ağ kurallarını mı, erişim anahtarlarını mı, eval sistemini mi, model davranışını mı değiştirecek? Değerli açıklama, tam olarak hangi sınırın aşıldığını ve tekrarını hangi testin engelleyeceğini söyleyen açıklama olacak.
+OpenAI aynı modeli yeniden eğitmeyeceğini açıkladı. Bu yüzden izlenecek şey eski çalışmanın açılması değil, yeni koşunun hangi testlerle başlayacağı. DNS ve ağ katmanında “ek önlem” denilen şeyin ölçülebilir bir durdurma kuralına dönüşmesi gerekiyor.
 
-Avustralya’daki adli inceleme de önemli. ASD destekli çalışma ve yeni görev gücü, AI ajanlarının yol açtığı erişim vakalarında hükümetlerin laboratuvarlardan nasıl bildirim beklediğini belirleyebilir. Şimdiden öğrendiğimiz bir şey var: Herkese açık e-posta kutusu olay bildirim hattı değildir.
+Birleşik Krallık’ta iki tarih var. Şirket temsilcileri 29 Eylül’e kadar katılım teyidi verecek, Avam Kamarası oturumu 13 Ekim’de yapılacak. Zorunlu yayın öncesi test ve modeli engelleme yetkisi soru halinde mi kalacak, teklife mi dönüşecek göreceğiz.
 
-Claude davasındaki iki ayrı mahkeme kararı da izlenmeli. D.C. Circuit Pentagon’un yanında, California Kuzey Bölgesi’nin ağustos kararıysa karşı yönde. Pentagon, Anthropic ve yükleniciler bu hukuki ikilik içinde fiili bir yol bulmak zorunda.
+Anthropic’in mahkeme tercihi de sırada. DC Circuit bir Pentagon etiketini bıraktı, San Francisco’daki karar diğerini kaldırdı. Tam heyet ya da Yüksek Mahkeme başvurusu ihtimali açık.
 
-AISI bekletmesinin geçici mi kalıcı mı olduğu ayrıca belli olacak. ABD önceliği kalıcı hale gelirse CAISI’nin personel kapasitesi, küresel güvenlik değerlendirmesinin hızını doğrudan belirleyecek.
+Sürüm notunu da atlamayalım: Docker Sandboxes 0.42.0, Docker Desktop 4.88.0 ve DeepSeek Harness 0.1.2-alpha.1 ya da daha yenisi. Bir **AI haftalık özet** içinde bu numaralar Opus ve Gemini kadar yer hak ediyor. Güçlü ajanın marifeti, onu çevreleyen sistemin açığıyla sınırlı.
 
-Son not sürümler için: Docker Sandboxes 0.42.0 veya sonrası, DeepSeek Harness 0.1.2-alpha.1 veya sonrası. Model isimleri kadar akılda kalmıyorlar. Risk de biraz buradan çıkıyor zaten.
-
-[Yapay zeka gündemini](https://www.oguzhan.co/tr/yapay-zeka/) izlerken bende kalan tablo şu: Ajan çalıştırmak hızla ucuzluyor. Onları sınırlayan teknik ve idari düzeneklerin güvenilir, sıradan bir altyapıya dönüşmesine ise daha var. Opus 5.5 kullanım maliyetini aşağı çekti; haftanın diğer haberleri güvenlik süreçlerinin, mahkemelerin, devletlerin ve sandbox katmanlarının yetişmeye çalıştığını gösterdi.
+[Geçen haftaki sayıda](https://www.oguzhan.co/tr/ai-haftalik-14-20-eylul-2026-tempodan-sandboxa/) tempo ile sandbox arasındaki gerilime bakmıştık. Bu hafta [yapay zeka gündeminde](https://www.oguzhan.co/tr/yapay-zeka/) iki ayrı saat çalışıyor: Anthropic ile Google yeni sürüme ne kadar çabuk ulaşacağını, OpenAI ise gerektiğinde ne kadar çabuk durabileceğini ölçüyor.
