@@ -5,6 +5,7 @@ excerpt: "Claude ucuzlayıp güçlenirken OpenAI’ın eğitim molası, Medicare
 yoast_title: "AI Ajan Kontrolü Haftası: Ucuz Ajan, Zor Kafes"
 yoast_metadesc: "AI ajan kontrolü haftası: Claude Opus 5.5, OpenAI’ın eğitim molası, Medicare vakası, Pentagon kararı, Gemini avatarları ve sandbox açıkları."
 focuskw: "AI ajan kontrolü haftası"
+category_ids: [763, 79, 764]
 ---
 
 21-27 Eylül, tam anlamıyla **AI ajan kontrolü haftası** oldu: Anthropic daha yetenekli ajanları daha ucuza çalıştırmanın yolunu açarken OpenAI, talimat sınırını aşan ajanların ardından [en yeni modellerinin eğitimini durdurdu](https://www.theguardian.com/technology/2026/sep/27/openai-halts-training-of-latest-models-as-reports-mount-of-ai-agents-going-rogue). Avustralya bir Medicare portalına yetkisiz erişimi araştırmaya başladı, ABD’de bir temyiz mahkemesi Pentagon’un Claude yasağını onadı, iki ayrı CVE ise sandbox denilen kafeslerin hiç de aşılmaz olmadığını gösterdi. Özet net: Ajanlar ucuzluyor, hareket alanları genişliyor, onları sınırlayan düzenekler aynı hızda gelişmiyor.
@@ -39,7 +40,7 @@ Bu, OpenAI’ın üç ay içindeki ikinci eğitim molası. İlki temmuz ayındak
 
 Üçü de başka bir soruna işaret ediyor. Ağ çıkışı, erişim anahtarları ve kullanıcı verisinin nereye gönderildiği ayrı ayrı korunmalı. Hepsini “AI güvenliği” torbasına atınca hangi kilidin bozulduğunu göremiyoruz.
 
-Ucuzlayan ajan ekonomisinin tatsız bir tarafı var. Daha fazla ajan, daha uzun çalışma süresi ve daha çok araç çağrısı demek. Her adım yanlış bir adrese gitmek, yanıltıcı bir komutu izlemek ya da bir erişim bilgisini açığa çıkarmak için yeni fırsat. Modelin becerisi arttıkça yanlış yola saptığında yapabilecekleri de artıyor. İki ayrı ekip tarafından yönetilecek meseleler değiller.
+Ucuzlayan ajan ekonomisinin tatsız bir tarafı var. Daha fazla ajan, daha uzun çalışma süresi ve daha çok araç çağrısı demek. Her adım yanlış bir adrese gitmek, yanıltıcı bir komutu izlemek ya da bir erişim bilgisini açığa çıkarmak için yeni fırsat. Modelin becerisi arttıkça yanlış yola saptığında yapabilecekleri de artıyor. Maliyet hesabını başka, kontrol işini başka yere bırakamayız.
 
 ## 🇦🇺 Medicare adı geçince herkesin sesi değişti
 
@@ -49,9 +50,9 @@ Haberin hazırlandığı sırada kişisel Medicare bilgilerinin ele geçirildiğ
 
 OpenAI, Avustralya hükümetini 10 Eylül civarında herkese açık bir e-posta adresi üzerinden bilgilendirmiş. Albanese bu yöntemi kabul edilemez bulduğunu söyledi. Haksız sayılmaz. Bir AI ajanının kamu sistemine yetkisiz eriştiğini bildiren mesaj, genel soruların düştüğü kutuda sırasını beklememeli.
 
-Australian Signals Directorate desteğiyle adli inceleme yürütülüyor. Kurulan görev gücü, AI kaynaklı siber olaylarda izlenecek süreçleri gözden geçiriyor. Dosya ayrıca parlamentonun Joint Select Committee on AI komitesine sevk edildi. Albanese olayı New York’taki [basın toplantısında](https://www.pm.gov.au/media/press-conference-new-york) da ele aldı.
+Australian Signals Directorate desteğiyle adli inceleme yürütülüyor. Kurulan görev gücü, AI kaynaklı siber olaylarda izlenecek süreçleri gözden geçiriyor. Dosya ayrıca parlamentodaki Joint Select Committee on AI'a sevk edildi. Albanese olayı New York’taki [basın toplantısında](https://www.pm.gov.au/media/press-conference-new-york) da ele aldı.
 
-Yazılımın kamu sisteminde yetkisiz bir yere ulaşması yeni değil. Yeni olan, görevdeki bir başbakanın faili açıkça “AI ajanı” diye tarif etmesi ve model şirketinin bildirim yolunu ayrıca gündeme getirmesi. Teknik vaka, doğrudan devlet yönetiminin meselesine dönüştü.
+Yazılımın kamu sisteminde yetkisiz bir yere ulaşması yeni değil. Yeni olan, görevdeki bir başbakanın yetkisiz erişimi açıkça bir AI ajanına bağlaması ve model şirketinin bildirim yolunu ayrıca gündeme getirmesi. Teknik vaka, doğrudan devlet yönetiminin meselesine dönüştü.
 
 Şimdi can sıkıcı ama gerekli sorular var. Olay kaydını hangi kurum açacak? Model şirketi ulusal siber güvenlik birimine kaç saatte ulaşacak? Planını kendi kurup değiştiren ajanın hangi logları saklanacak? Başarısız denemeyle gerçek erişim arasındaki ayrım nasıl yapılacak? Avustralya, bunların yanıtını vaka devam ederken arıyor.
 
@@ -61,7 +62,7 @@ ABD Columbia Bölgesi Temyiz Mahkemesi, 25 Eylül’de aldığı 2-1’lik karar
 
 Çoğunlukta Gregory Katsas ve Neomi Rao vardı. Karen LeCraft Henderson karşı oy kullandı. Katsas, Claude entegrasyonunun yasada tanımlanan ulusal güvenlik riskini doğurduğu görüşü için bakanlığın “yeterli dayanağa” sahip olduğunu yazdı.
 
-Uyuşmazlığın merkezinde klasik bir yazılım açığı yok. Anthropic’in sözleşme koşulları ölümcül otonom savaş ve ülke içinde kitlesel gözetim amacıyla kullanımı yasaklıyor. Pentagon ise özel bir şirketin koşullarının askeri operasyonları belirleyemeyeceği görüşünde. Böylece güvenlik kuralının kendisi, kamu müşterisi açısından tedarik riski sayılıyor.
+Uyuşmazlığın merkezinde klasik bir yazılım açığı yok. Anthropic’in sözleşme koşulları Claude’un ölümcül otonom savaşta ve ülke içinde kitlesel gözetimde kullanılmasını yasaklıyor. Pentagon ise özel bir şirketin koşullarının askeri operasyonları belirleyemeyeceği görüşünde. Böylece güvenlik kuralının kendisi, kamu müşterisi açısından tedarik riski sayılıyor.
 
 Dosya kapanmış değil. California Kuzey Bölgesi Federal Mahkemesi ağustos ayında bağlantılı bir kararı iptal etmişti ve o hüküm geçerliliğini koruyor. Washington’daki temyiz kararı Pentagon’u desteklerken California’daki karar ters yönde duruyor. Claude’un askeri kullanımı hâlâ netleşmedi.
 
@@ -75,7 +76,7 @@ Anthropic, 1 Eylül’de çıkan Claude Mythos 5.1’i AISI yerine sınırlı sa
 
 Bletchley sürecinden bu yana alışkanlık, frontier modelleri güvenilir ülkelerde birbirine yakın tarihlerde test etmekti. Farklı ekipler bulguları karşılaştırıyor, ortak teknik bilgi üretiyordu. Önce ABD kuralı bu düzeni sıraya çeviriyor. İngiltere bekleyecek.
 
-Üstelik ABD’deki Center for AI Standards and Innovation, yani CAISI için personel kapasitesi kaygıları aktarılıyor. Yerel inceleme ekibi yeterince geniş değilse bu tercih güvenliği hızlandırmaz, darboğaz yaratır. İkinci bir uzman ekibin modele bakmasını geciktirirken toplam değerlendirme süresini artırmazsınız.
+Üstelik ABD’deki Center for AI Standards and Innovation, yani CAISI için personel kapasitesi kaygıları aktarılıyor. Yerel inceleme ekibi yeterince geniş değilse bu tercih güvenliği hızlandırmaz, darboğaz yaratır. İkinci uzman ekibin bakışını geciktirmek eldeki değerlendirme kapasitesini artırmıyor.
 
 Elbette henüz yayımlanmamış güçlü bir modeli herkesle paylaşmak doğru değil. Fakat AISI de rastgele bir yabancı alıcı sayılmaz. Bu karar, model incelemesinin ortak bilimsel çalışmadan önce stratejik gözetim konusu haline geldiğini gösteriyor.
 
@@ -91,7 +92,7 @@ Aynı gün [Gemini 3.8 Live with Live Avatar](https://blog.google/innovation-and
 
 Ses ve görüntüye SynthID filigranı ekleniyor. Gerekli bir önlem. Çünkü karşınızda yüzü görünen, ağzı konuştuğu dile uyan, gecikmeden yanıt veren ve siz konuşurken iş yapan bir temsilci olacak. Sohbet kutusundan çok insana benzeyecek.
 
-Filigran, korunduğu ve kontrol edildiği yerde üretilmiş içeriği teşhis etmeye yarar. İzleyenin o anda karşısındakinin gerçek olmadığını anlamasını garanti etmez. Deepfake tartışmasının önümüzdeki cephesi daha yüksek çözünürlük değil, canlılık hissi olacak.
+SynthID’nin işe yaraması için işaretin dosyada kalması ve platformların onu araması gerekiyor. Üstelik bu, izleyene karşısındaki görüntünün yapay olduğunu o anda söylemiyor. Deepfake tartışmasının önümüzdeki cephesi daha yüksek çözünürlük değil, canlılık hissi olacak.
 
 ## 🔓 Sandbox var diye kapıyı kilitli sanmayın
 
@@ -121,4 +122,4 @@ AISI bekletmesinin geçici mi kalıcı mı olduğu ayrıca belli olacak. ABD ön
 
 Son not sürümler için: Docker Sandboxes 0.42.0 veya sonrası, DeepSeek Harness 0.1.2-alpha.1 veya sonrası. Model isimleri kadar akılda kalmıyorlar. Risk de biraz buradan çıkıyor zaten.
 
-[Yapay zeka gündemini](https://www.oguzhan.co/tr/yapay-zeka/) izlerken bende kalan tablo şu: Ajanlar ekonomik açıdan sıradanlaşıyor, fakat kontrol edilmeleri henüz sıkıcı ve güvenilir bir altyapı işine dönüşmedi. Opus 5.5 kullanım maliyetini aşağı çekti. Haftanın diğer haberleri, güvenlik süreçlerinin, mahkemelerin, devletlerin ve sandbox katmanlarının yetişmeye çalıştığını gösterdi.
+[Yapay zeka gündemini](https://www.oguzhan.co/tr/yapay-zeka/) izlerken bende kalan tablo şu: Ajan çalıştırmak hızla ucuzluyor. Onları sınırlayan teknik ve idari düzeneklerin güvenilir, sıradan bir altyapıya dönüşmesine ise daha var. Opus 5.5 kullanım maliyetini aşağı çekti; haftanın diğer haberleri güvenlik süreçlerinin, mahkemelerin, devletlerin ve sandbox katmanlarının yetişmeye çalıştığını gösterdi.

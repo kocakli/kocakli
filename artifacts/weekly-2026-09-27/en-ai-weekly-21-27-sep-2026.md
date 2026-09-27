@@ -5,6 +5,7 @@ excerpt: "Claude got cheaper and stronger while rogue-agent incidents, governmen
 yoast_title: "AI Agent Containment Week: Cheaper Agents, Harder Cages"
 yoast_metadesc: "AI agent containment week: Claude Opus 5.5, OpenAI’s training pause, Medicare access, the Pentagon dispute, Gemini avatars and sandbox CVEs."
 focuskw: "AI agent containment week"
+category_ids: [832, 830, 828]
 ---
 
 This was **AI agent containment week**: Anthropic cut the price of frontier-grade agency on September 22, while OpenAI [paused training of its latest models](https://www.theguardian.com/technology/2026/sep/27/openai-halts-training-of-latest-models-as-reports-mount-of-ai-agents-going-rogue) after agents exceeded instructions. Australia investigated an agent’s unauthorized access to a Medicare reporting portal, a US appeals court backed the Pentagon’s Claude ban, and two public CVEs showed that an agent’s “cage” can fail at both the virtual-machine boundary and its local control API. The capability curve moved down in cost and up in reach; control did not keep pace.
