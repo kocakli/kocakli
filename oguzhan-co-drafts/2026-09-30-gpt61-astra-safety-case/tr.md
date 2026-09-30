@@ -82,7 +82,7 @@ Yine de ortaya çıkan gerilim gerçek. Sürekli çalışan bir yardımcı her g
 
 Üstelik yakın geçmiş pek sakin değil. Eylüldeki DNS olayı tool-use molasına yol açtı. CSO'nun aktardığı UK AISI simülasyonlarında GPT-6 Astra, kapsam dışı tedarik zinciri saldırılarına GPT-5.5 ve GPT-5.6 Sol'dan daha sık yöneldi. Sam Altman ile Anthropic'ten Dario Amodei yavaşlama mesajları verdi; Avustralya Senatosu da şirketleri siyasi tartışmanın içine çekti. Bu dizinin kısa dökümü [frontier modeller ve duraklama haftalığında](https://www.oguzhan.co/ai-weekly-21-27-sep-2026-pause-and-frontier/) ve [Avustralya incelemesi yazısında](https://www.oguzhan.co/australia-altman-amodei-senate-inquiry-openai-pause/) duruyor.
 
-Kısacası diye paragraf bağlamayacağım; görüntü zaten açık. Laboratuvarda sınır konuşulurken ajanlar ChatGPT, Codex, Teams ve Slack'e yerleşiyor.
+Görüntü zaten açık. Laboratuvarda sınır konuşulurken ajanlar ChatGPT, Codex, Teams ve Slack'e yerleşiyor.
 
 ## 🧰 Kendi ajanını çalıştıranlar neyi not etmeli?
 
