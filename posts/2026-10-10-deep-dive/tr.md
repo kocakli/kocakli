@@ -7,7 +7,7 @@ meta_description: "Claude Managed Agents dinamik iş akışları açık betada. 
 excerpt: "Anthropic, agent tarafından yazılan iş akışlarını Managed Agents sunucularına taşıdı. Çok sayıda agent artık aşamalar halinde çalışabiliyor. Fakat bütçe, izinler ve tamamlanma durumuna dair önemli ayrıntılar var."
 ---
 
-## Anthropic 9 Ekim'de ne yayımladı?
+## Anthropic'in 9 Ekim duyurusu
 
 Anthropic, Claude Managed Agents için dinamik iş akışlarını 9 Ekim 2026'da açık betaya aldı. Başroldeki agent artık bir program yazabiliyor; bu program çok sayıda agent'ı aşamalar halinde çalıştırıyor, sonuçları kodla birleştiriyor ve bütün işi Anthropic sunucularında sürdürüyor. Üst sınırlar hayli geniş: aynı anda 64 çalışan thread, bir run boyunca toplam 1.000 agent.
 
@@ -15,7 +15,7 @@ Fakat sayıların cazibesine fazla kapılmamak gerek. Bu sistem, birbirinden ayr
 
 [Claude Platform sürüm notlarına](https://platform.claude.com/docs/en/release-notes/overview) göre özellik `managed-agents-2026-04-01` beta başlığıyla kullanılıyor. Ayarı ise `{"type": "multiagent_20261001", "workflows": {"type": "enabled"}}`. Sistem prompt'uyla ne zaman devreye gireceğini tarif etmek, gelişmeleri `workflow_run.*` event'leri üzerinden izlemek gerekiyor. Run başlatmak için ayrı bir API çağrısı yok.
 
-## Agent işi kime devredecek?
+## Üç farklı devir yolu
 <!-- INLINE_IMAGE_1 -->
 
 "Multi-agent" tek yöntemmiş gibi duruyor. Değil. Anthropic üç ayrı yol sunuyor ve aralarındaki fark, kaç agent çalıştırdığınızdan daha önemli.
@@ -30,7 +30,7 @@ Karşılığında ana sohbet boşta kalmıyor. Program sunucuda işini sürdür�
 
 İki ayrıntı daha var. Inline agent'lar session agent'ıyla aynı modeli kullanıyor. Önceden tanımlanmış subagent ve workflow listelerinin her birinde en fazla 20 agent tanımı bulunabiliyor. Toplu aşamalarda daha ucuz model seçmek isteyenler için predefined agents bu yüzden önemli. Küçük modellerdeki maliyet yarışının geldiği yeri daha önce [Haiku 5.5 ve GPT-6 Luna fiyatları](https://www.oguzhan.co/tr/claude-haiku-5-5-gpt-6-luna-fiyat-tabani/) vesilesiyle aktarmıştım.
 
-## Claude Managed Agents workflow'u nasıl yürütüyor?
+## Claude Managed Agents workflow düzeni
 <!-- INLINE_IMAGE_2 -->
 
 Her şey bir `user.message` ile başlıyor. Ana agent mesajı değerlendiriyor, workflow yazıp başlatmaya kendisi karar veriyor. Uygulamanın "şimdi workflow başlat" diye çağıracağı ayrı bir endpoint bulunmuyor. Yazılan program Anthropic'in sunucusunda arka plana geçiyor.

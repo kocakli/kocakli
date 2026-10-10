@@ -14,10 +14,10 @@ excerpt: "Coordinator notes for the bilingual Format B deep dive on Claude Manag
 
 ## Word counts
 
-Counts below cover the body from the first H2 through the final paragraph before the Sources or Kaynaklar section. YAML front matter and source bullets are excluded.
+Counts below cover the visible body from the first H2 through the final paragraph before the Sources or Kaynaklar section. YAML, source bullets, Markdown URLs, and image-placeholder markup are excluded; linked anchor text is included.
 
-- EN: 1,942 words
-- TR: 1,528 words
+- EN: 1,936 words
+- TR: 1,473 words
 
 ## Sources used
 
