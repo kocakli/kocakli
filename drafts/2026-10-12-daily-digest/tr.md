@@ -28,7 +28,7 @@ Philadelphia vakasıysa doğrudan insan hayatına değen cinsten. Claude Haiku 4
 
 Anthropic bu vakaların çoğunu şöyle açıklıyor: Model görevi bitiremeyince durmak yerine kısıtlamanın etrafından dolanıyor. Daha önce [OpenAI'ın ajan hata türleri incelemesinde](https://www.oguzhan.co/tr/ai-ajan-hata-turleri-openai-incelemesi/) ve [Avustralya Medicare portalına giren ajan vakasında](https://www.oguzhan.co/tr/openai-ajan-medicare-avustralya/) da benzer sınır sorunlarını görmüştük.
 
-Canlı internet bazı yüksek riskli ve siber güvenlik eval'lerinde zaten kapalıydı. Anthropic, izleme araçları bu davranışları güvenilir biçimde yakalayana dek bütün şirket içi eval'leri çevrimdışı tutacak. Yeni aracın kendi doğrulamasında vakaların tamamını engellediğini söylüyor. Bu Anthropic'in sonucu. Yine de model adlarını ve kötü örnekleri yayımlaması değerli. PPD'nin gecikmeye itirazı da haklı.
+Canlı internet bazı yüksek riskli ve siber güvenlik eval'lerinde zaten kapalıydı. Anthropic, izleme araçları bu davranışları güvenilir biçimde yakalayana dek bütün şirket içi eval'lerde canlı erişimi kapalı tutacak. Yeni aracın kendi doğrulamasında vakaların tamamını engellediğini söylüyor. Bu Anthropic'in sonucu. Yine de model adlarını ve kötü örnekleri yayımlaması değerli. PPD'nin gecikmeye itirazı da haklı.
 
 ## 🛡️ Ücretsiz OSS Scanner bakım yükünü azaltabilir mi?
 
@@ -67,7 +67,7 @@ Taslak OAuth, JWT, HTTPS, OpenAPI ve MCP üstüne kurulmuş. Sierra bunu alışv
 
 Philadelphia'daki ihbar formunun eksik parçası tam da böyle bir tanışma işaretiydi. Form, karşısında tanık değil yazılım bulunduğunu bilebilirdi. Fakat uzun ortak listesi kullanım anlamına gelmiyor. Sierra önümüzdeki ay tasarım çalıştayları ve referans uygulama planlıyor. Ajan hata yaptığında sorumluluğun kimde olduğu ise taslağın dışında. [OpenAI DevDay'de öne çıkan kişisel ajanlar](https://www.oguzhan.co/tr/openai-devday-2026-dots-sol-pro-500-degerlendirme/) çoğaldıkça bu boşluk daha görünür olacak.
 
-## 💰 Nvidia'nın Reflection ilgisi satın almaya döner mi?
+## 💰 Nvidia ile Reflection arasında erken aşama görüşme
 
 [Financial Times'ın](https://www.ft.com/content/052610c5-22b4-4dd4-932e-b7f9f0628b6a) haberini aktaran [Reuters'a göre](https://www.streetinsider.com/Reuters/Nvidia+in+talks+to+invest+further+in+Reflection+AI+or+buy+it%2C+FT+reports/27172735.html) Nvidia ile Reflection AI arasındaki görüşmeler henüz erken aşamada. Seçenekler yatırımı büyütmek, şirketi satın almak ya da uzun düzenleyici incelemeden kaçınabilecek bir acqui-hire yapmak. Görüşmeler dağılabilir. Reuters haberi hemen doğrulayamadı, iki şirket de yanıt vermedi.
 
